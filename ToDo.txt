@@ -3,4 +3,4 @@ Plot results
 Support user input
 Allow solving for functions of two variables
 Boundary conditions
-
+Add readme
