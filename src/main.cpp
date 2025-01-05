@@ -2,10 +2,12 @@
 #include <memory>
 
 #include "Solvers/CosineSolver.hpp"
+#include "Solvers/PolynomialSolver.hpp"
 #include "Solvers/SineSolver.hpp"
 
 std::unique_ptr<Solver> getSolver() {
-    return std::make_unique<CosineSolver>(Coeffs{1, 1}, 0.1, 30);
+    return std::make_unique<PolynomialSolver>(CoeffsFive{1, 0, 0, 0, 0}, 0.1,
+                                              30);
 }
 
 int main() {

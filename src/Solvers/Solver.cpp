@@ -1,7 +1,6 @@
 #include "Solver.hpp"
 
-Solver::Solver(const Coeffs coeffs, const double dt, const int numSteps) {
-    this->coeffs = coeffs;
+Solver::Solver(const double dt, const int numSteps) {
     this->dt = dt;
     this->numSteps = numSteps;
 }

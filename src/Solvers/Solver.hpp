@@ -12,11 +12,10 @@ class Solver {
     double virtual rhsFunction(const double t) const = 0;
 
    protected:
-    Coeffs coeffs;
     double dt;
     int numSteps;
 
-    Solver(const Coeffs coeffs, const double dt, const int numSteps);
+    Solver(const double dt, const int numSteps);
 
    public:
     std::vector<Point> Solve(const Point startingPoint) const;

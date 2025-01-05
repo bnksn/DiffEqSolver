@@ -4,8 +4,9 @@
 
 class CosineSolver : public Solver {
    private:
+    CoeffsTwo coeffs;
     double rhsFunction(const double t) const override;
 
    public:
-    CosineSolver(const Coeffs coeffs, const double dt, const int numSteps);
+    CosineSolver(const CoeffsTwo coeffs, const double dt, const int numSteps);
 };

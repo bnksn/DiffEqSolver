@@ -1,7 +1,6 @@
-Allow function-specific coefficients
-Suppport polynomials
+Build system
 Plot results
+Support user input
 Allow solving for functions of two variables
 Boundary conditions
-Build system
-Support user input
+
