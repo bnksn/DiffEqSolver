@@ -3,7 +3,7 @@
 SineSolver::SineSolver(const Coeffs coeffs, const double dt, const int numSteps)
     : Solver(coeffs, dt, numSteps) {}
 
-const std::vector<Point> SineSolver::Solve(const Point startingPoint) const {
+std::vector<Point> SineSolver::Solve(const Point startingPoint) const {
     auto result = std::vector{startingPoint};
 
     for (auto i = 0; i < numSteps; ++i) {

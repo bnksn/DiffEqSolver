@@ -16,5 +16,5 @@ class Solver {
     Solver(const Coeffs coeffs, const double dt, const int numSteps);
 
    public:
-    const virtual std::vector<Point> Solve(const Point startingPoint) const = 0;
+    virtual std::vector<Point> Solve(const Point startingPoint) const = 0;
 };

@@ -3,7 +3,7 @@
 
 #include "Solvers/SineSolver.hpp"
 
-const std::unique_ptr<Solver> getSolver() {
+std::unique_ptr<Solver> getSolver() {
     return std::make_unique<SineSolver>(Coeffs{1, 1}, 0.1, 30);
 }
 
