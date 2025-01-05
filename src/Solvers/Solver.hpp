@@ -8,6 +8,9 @@
 #include "../Point.hpp"
 
 class Solver {
+   private:
+    double virtual rhsFunction(const double t) const = 0;
+
    protected:
     Coeffs coeffs;
     double dt;
@@ -16,5 +19,5 @@ class Solver {
     Solver(const Coeffs coeffs, const double dt, const int numSteps);
 
    public:
-    virtual std::vector<Point> Solve(const Point startingPoint) const = 0;
+    std::vector<Point> Solve(const Point startingPoint) const;
 };
