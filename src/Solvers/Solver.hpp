@@ -1,20 +1,20 @@
 #pragma once
 
-#include <vector>
 #include <math.h>
+
+#include <vector>
 
 #include "../Coefficients.hpp"
 #include "../Point.hpp"
 
-class Solver
-{
-protected:
-	Coeffs coeffs;
-	double dt;
-	int numSteps;
+class Solver {
+   protected:
+    Coeffs coeffs;
+    double dt;
+    int numSteps;
 
     Solver(const Coeffs coeffs, const double dt, const int numSteps);
 
-public:
-	const virtual std::vector<Point> Solve(const Point startingPoint) const = 0;
+   public:
+    const virtual std::vector<Point> Solve(const Point startingPoint) const = 0;
 };
