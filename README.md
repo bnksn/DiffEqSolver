@@ -7,8 +7,8 @@
 
 1. Clone repo
 2. cd into "build" directory
-3. Run "cmake ."
-4. Run "make"
+3. Run "cmake -B ./build"
+3. Run "cmake --build ./build"
 
 ## To Do
 
