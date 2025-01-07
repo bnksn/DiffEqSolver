@@ -1,37 +1,34 @@
 #include <iostream>
 #include <memory>
 
+#include "FunctionInputs.hpp"
 #include "Solvers/CosineSolver.hpp"
 #include "Solvers/PolynomialSolver.hpp"
 #include "Solvers/SineSolver.hpp"
+#include "UserInput.hpp"
 
-enum class FuntionInputs { Sine, Cosine, Polynomial };
-
-std::unique_ptr<Solver> getSolver(const FuntionInputs functionInput,
-                                  const double dtInput,
-                                  const int numStepsInput) {
-    switch (functionInput) {
-        case FuntionInputs::Sine:
-            return std::make_unique<SineSolver>(CoeffsTwo{1, 1}, dtInput,
-                                                numStepsInput);
-        case FuntionInputs::Cosine:
-            return std::make_unique<CosineSolver>(CoeffsTwo{1, 1}, dtInput,
-                                                  numStepsInput);
-        case FuntionInputs::Polynomial:
-            return std::make_unique<PolynomialSolver>(CoeffsFive{1, 0, 0, 0, 0},
-                                                      dtInput, numStepsInput);
+std::unique_ptr<Solver> getSolver(const UserInput userInput) {
+    switch (userInput.rhsFunc) {
+        case FunctionInputs::Sine:
+            return std::make_unique<SineSolver>(CoeffsTwo{1, 1}, userInput.dt,
+                                                userInput.numSteps);
+        case FunctionInputs::Cosine:
+            return std::make_unique<CosineSolver>(CoeffsTwo{1, 1}, userInput.dt,
+                                                  userInput.numSteps);
+        case FunctionInputs::Polynomial:
+            return std::make_unique<PolynomialSolver>(
+                CoeffsFive{1, 0, 0, 0, 0}, userInput.dt, userInput.numSteps);
         default:
-            throw std::invalid_argument("Invalid function input");
+            throw std::invalid_argument("Invalid user input");
     }
 }
 
-int main() {
-    // Simulate user input
-    const auto functionInput = FuntionInputs::Cosine;
-    const auto dtInput = 0.1;
-    const auto numStepsInput = 30;
+UserInput simulateUserInput() {
+    return {.rhsFunc = FunctionInputs::Sine, .dt = 0.1, .numSteps = 30};
+}
 
-    const auto solver = getSolver(functionInput, dtInput, numStepsInput);
+int main() {
+    const auto solver = getSolver(simulateUserInput());
 
     const auto& result = solver->Solve({.x = 0, .y = 0});
 
