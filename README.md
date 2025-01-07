@@ -4,9 +4,9 @@
 - Any C++ compiler that supports C++23
 
 ## How to build
-1. Clone repository
+1. Clone the repository
 2. cd into the repository directory
-3. Run "cmake -B ./build"
+3. Run "cmake ./build -B ./build"
 4. Run "cmake --build ./build"
 
 ## To Do
