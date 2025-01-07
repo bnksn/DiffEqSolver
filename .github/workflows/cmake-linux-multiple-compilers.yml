@@ -1,10 +1,6 @@
-name: CMake Linux multiple compilers
+name: CMake Linux GCC Clang
 
-on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+on: push
 
 jobs:
   build:
@@ -17,10 +13,8 @@ jobs:
         c_compiler: [gcc, clang]
         include:
           - os: ubuntu-latest
-            c_compiler: gcc
             cpp_compiler: g++
           - os: ubuntu-latest
-            c_compiler: clang
             cpp_compiler: clang++
 
     steps:
@@ -30,15 +24,14 @@ jobs:
       id: strings
       shell: bash
       run: |
-        echo "build-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+        echo "build-dir=${{github.workspace}}/build" >> "$GITHUB_OUTPUT"
 
     - name: Configure CMake
       run: >
         cmake 
-        -B ${{ steps.strings.outputs.build-dir }}
-        -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
-        -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
-        -S ${{ steps.strings.outputs.build-dir }}
+        -B ${{steps.strings.outputs.build-dir}}
+        -DCMAKE_CXX_COMPILER=${{matrix.cpp_compiler}}
+        -S ${{steps.strings.outputs.build-dir}}
 
     - name: Build
-      run: cmake --build ${{ steps.strings.outputs.build-dir }}
+      run: cmake --build ${{steps.strings.outputs.build-dir}}
