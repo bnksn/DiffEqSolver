@@ -1,6 +1,6 @@
 ## Requirements
-- cmake
-- make
+- CMake
+- Make
 - Any C++ compiler that supports C++23
 
 ## How to build
