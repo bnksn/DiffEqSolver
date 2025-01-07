@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(DiffEqSolver)
 
 set(SOURCES
-    ../src/main.cpp
+    ../src/Main.cpp
     ../src/Solvers/Solver.cpp
     ../src/Solvers/CosineSolver.cpp
     ../src/Solvers/SineSolver.cpp
