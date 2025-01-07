@@ -5,6 +5,8 @@ Solver::Solver(const double dt, const int numSteps) {
     this->numSteps = numSteps;
 }
 
+Solver::~Solver() {}
+
 std::vector<Point> Solver::Solve(const Point startingPoint) const {
     auto result = std::vector{startingPoint};
 

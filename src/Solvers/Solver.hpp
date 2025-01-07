@@ -18,5 +18,6 @@ class Solver {
     Solver(const double dt, const int numSteps);
 
    public:
+    virtual ~Solver();
     std::vector<Point> Solve(const Point startingPoint) const;
 };
