@@ -5,9 +5,9 @@
 
 ## How to build
 1. Clone the repository
-2. cd into the repository directory
-3. Run "cmake ./build -B ./build"
-4. Run "cmake --build ./build"
+2. cd into the "build" directory
+3. Run "cmake ."
+4. Run "cmake --build ."
 
 ## To Do
 - Plot results
