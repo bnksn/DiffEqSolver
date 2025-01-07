@@ -1,11 +1,11 @@
 #include <iostream>
 #include <memory>
 
-#include "FunctionInputs.hpp"
+#include "Input/FunctionInputs.hpp"
+#include "Input/UserInput.hpp"
 #include "Solvers/CosineSolver.hpp"
 #include "Solvers/PolynomialSolver.hpp"
 #include "Solvers/SineSolver.hpp"
-#include "UserInput.hpp"
 
 std::unique_ptr<Solver> getSolver(const UserInput userInput) {
     switch (userInput.rhsFunc) {

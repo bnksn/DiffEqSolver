@@ -4,8 +4,8 @@
 
 #include <vector>
 
-#include "../Coefficients.hpp"
-#include "../Point.hpp"
+#include "../Math/Coefficients.hpp"
+#include "../Math/Point.hpp"
 
 class Solver {
    private:
