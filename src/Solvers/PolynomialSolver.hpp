@@ -4,10 +4,9 @@
 
 class PolynomialSolver : public Solver {
    private:
-    CoeffsFive coeffs;
     double rhsFunction(const double t) const override;
 
    public:
-    PolynomialSolver(const CoeffsFive coeffs, const double dt,
-                     const int numSteps);
+    PolynomialSolver(const double dt, const int numSteps,
+                     const std::vector<int>& coeffs);
 };

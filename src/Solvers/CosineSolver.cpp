@@ -2,12 +2,10 @@
 
 #include <cmath>
 
-CosineSolver::CosineSolver(const CoeffsTwo coeffs, const double dt,
-                           const int numSteps)
-    : Solver(dt, numSteps) {
-    this->coeffs = coeffs;
-}
+CosineSolver::CosineSolver(const double dt, const int numSteps,
+                           const std::vector<int>& coeffs)
+    : Solver(dt, numSteps, coeffs) {}
 
 double CosineSolver::rhsFunction(const double t) const {
-    return coeffs.A * std::cos(coeffs.B * t);
+    return coeffs[0] * std::cos(coeffs[1] * t);
 }

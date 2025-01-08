@@ -2,12 +2,10 @@
 
 #include <cmath>
 
-SineSolver::SineSolver(const CoeffsTwo coeffs, const double dt,
-                       const int numSteps)
-    : Solver(dt, numSteps) {
-    this->coeffs = coeffs;
-}
+SineSolver::SineSolver(const double dt, const int numSteps,
+                       const std::vector<int>& coeffs)
+    : Solver(dt, numSteps, coeffs) {}
 
 double SineSolver::rhsFunction(const double t) const {
-    return coeffs.A * std::sin(coeffs.B * t);
+    return coeffs[0] * std::sin(coeffs[1] * t);
 }

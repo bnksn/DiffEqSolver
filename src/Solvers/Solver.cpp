@@ -1,8 +1,10 @@
 #include "Solver.hpp"
 
-Solver::Solver(const double dt, const int numSteps) {
+Solver::Solver(const double dt, const int numSteps,
+               const std::vector<int>& coeffs) {
     this->dt = dt;
     this->numSteps = numSteps;
+    this->coeffs = coeffs;
 }
 
 Solver::~Solver() {}

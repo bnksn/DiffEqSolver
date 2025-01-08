@@ -2,7 +2,6 @@
 
 #include <vector>
 
-#include "../Math/Coefficients.hpp"
 #include "../Math/Point.hpp"
 
 class Solver {
@@ -12,8 +11,9 @@ class Solver {
    protected:
     double dt;
     int numSteps;
+    std::vector<int> coeffs;
 
-    Solver(const double dt, const int numSteps);
+    Solver(const double dt, const int numSteps, const std::vector<int>& coeffs);
 
    public:
     virtual ~Solver();

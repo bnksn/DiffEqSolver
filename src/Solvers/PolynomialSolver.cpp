@@ -1,12 +1,10 @@
 #include "PolynomialSolver.hpp"
 
-PolynomialSolver::PolynomialSolver(const CoeffsFive coeffs, const double dt,
-                                   const int numSteps)
-    : Solver(dt, numSteps) {
-    this->coeffs = coeffs;
-}
+PolynomialSolver::PolynomialSolver(const double dt, const int numSteps,
+                                   const std::vector<int>& coeffs)
+    : Solver(dt, numSteps, coeffs) {}
 
 double PolynomialSolver::rhsFunction(const double t) const {
-    return coeffs.A + coeffs.B * t + coeffs.C * t * t + coeffs.D * t * t * t +
-           coeffs.E * t * t * t * t;
+    return coeffs[0] + coeffs[1] * t + coeffs[2] * t * t +
+           coeffs[3] * t * t * t + coeffs[4] * t * t * t * t;
 }
