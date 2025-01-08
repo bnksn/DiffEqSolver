@@ -5,21 +5,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(DiffEqSolver)
 
-set(SOURCES
-    ../src/Main.cpp
-    ../src/Solvers/Solver.cpp
-    ../src/Solvers/CosineSolver.cpp
-    ../src/Solvers/SineSolver.cpp
-    ../src/Solvers/PolynomialSolver.cpp
+add_executable(DiffEqSolver 
+  ../src/Main.cpp
+  ../src/Solvers/Solver.cpp
+  ../src/Solvers/CosineSolver.cpp
+  ../src/Solvers/SineSolver.cpp
+  ../src/Solvers/PolynomialSolver.cpp
 )
 
-add_executable(DiffEqSolver ${SOURCES})
-
-target_compile_options(DiffEqSolver PRIVATE 
-    -Werror
-    -Wall 
-    -Wextra 
-    -Wpedantic 
-    -Wconversion 
-    -O3
-)
+if (MSVC)
+    add_compile_options(/W4 /WX)
+else()
+    add_compile_options(-Wall -Wextra -pedantic -Werror -Wconversion -O3)
+endif()

@@ -1,5 +1,7 @@
 #include "CosineSolver.hpp"
 
+#include <cmath>
+
 CosineSolver::CosineSolver(const CoeffsTwo coeffs, const double dt,
                            const int numSteps)
     : Solver(dt, numSteps) {

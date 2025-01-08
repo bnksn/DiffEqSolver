@@ -1,7 +1,5 @@
 #pragma once
 
-#include <math.h>
-
 #include <vector>
 
 #include "../Math/Coefficients.hpp"

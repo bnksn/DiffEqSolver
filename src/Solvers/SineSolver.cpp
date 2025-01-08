@@ -1,5 +1,7 @@
 #include "SineSolver.hpp"
 
+#include <cmath>
+
 SineSolver::SineSolver(const CoeffsTwo coeffs, const double dt,
                        const int numSteps)
     : Solver(dt, numSteps) {
