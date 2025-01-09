@@ -7,6 +7,7 @@ project(DiffEqSolver)
 
 add_executable(DiffEqSolver 
   ../src/Main.cpp
+  ../src/Solvers/Solver.cpp
   ../src/Solvers/Solver1D.cpp
   ../src/Solvers/Solver2D.cpp
 )

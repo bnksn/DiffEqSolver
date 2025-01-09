@@ -2,12 +2,9 @@
 
 #include <vector>
 
-class Solver1D {
-   private:
-    double xFinal;
-    unsigned int xNumSteps;
-    double dx;
+#include "Solver.hpp"
 
+class Solver1D : public Solver {
    public:
     Solver1D(const double xFinal, const unsigned int xNumSteps);
     std::vector<double> SineSolve(const double yInitial,

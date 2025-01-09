@@ -2,11 +2,8 @@
 
 #include <cmath>
 
-Solver1D::Solver1D(const double xFinal, const unsigned int xNumSteps) {
-    this->xFinal = xFinal;
-    this->xNumSteps = xNumSteps;
-    this->dx = xFinal / xNumSteps;
-}
+Solver1D::Solver1D(const double xFinal, const unsigned int xNumSteps)
+    : Solver(xFinal, xNumSteps) {}
 
 std::vector<double> Solver1D::SineSolve(
     const double yInitial, const std::vector<double>& coeffs) const {

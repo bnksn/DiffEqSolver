@@ -4,28 +4,31 @@
 
 Solver2D::Solver2D(const double xFinal, const unsigned int xNumSteps,
                    const double yFinal, const unsigned int yNumSteps,
-                   const std::vector<int>& coeffs) {
-    this->xFinal = xFinal;
-    this->xNumSteps = xNumSteps;
-    this->dx = xFinal / xNumSteps;
-
+                   const std::vector<int>& coeffs)
+    : Solver(xFinal, xNumSteps) {
     this->yFinal = yFinal;
     this->yNumSteps = yNumSteps;
     this->dy = yFinal / yNumSteps;
-
-    this->coeffs = coeffs;
 }
 
-std::vector<std::vector<double>> Solver2D::HeatSolve(
-    const std::vector<double>& initialValues, const double alpha) const {
+std::vector<double> Solver2D::flattenOutput(
+    const std::vector<std::vector<double>>& output) const {
+    auto flatOutput = std::vector<double>();
+    for (const auto& vec : output) {
+        flatOutput.insert(flatOutput.end(), vec.begin(), vec.end());
+    }
+    return flatOutput;
+}
+
+std::vector<double> Solver2D::HeatSolve(const std::vector<double>& zInitial,
+                                        const double alpha) const {
     if (this->xNumSteps <= 1) {
-        return std::vector<std::vector<double>>(this->yNumSteps + 1,
-                                                initialValues);
+        return flattenOutput(std::vector(this->yNumSteps + 1, zInitial));
     }
 
-    auto result = std::vector<std::vector<double>>{initialValues};
+    auto zValues = std::vector<std::vector<double>>{zInitial};
     for (auto i = 0; i < this->yNumSteps; ++i) {
-        const auto prevPoints = result.back();
+        const auto prevPoints = zValues.back();
         auto newPoints = std::vector<double>(prevPoints.size());
 
         // enforce dirichlet condition
@@ -40,5 +43,5 @@ std::vector<std::vector<double>> Solver2D::HeatSolve(
         }
     }
 
-    return result;
+    return flattenOutput(zValues);
 }
