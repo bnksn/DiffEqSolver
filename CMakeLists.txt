@@ -10,7 +10,7 @@ add_executable(DiffEqSolver
   ../src/Solvers/Solver.cpp
   ../src/Solvers/Solvers1D/Solver1D.cpp
   ../src/Solvers/Solvers1D/SolverPolynomial.cpp
-  ../src/Solvers/Solvers1D/SolverSine.cpp
+  ../src/Solvers/Solvers1D/SolverTrig.cpp
   ../src/Solvers/Solvers2D/Solver2D.cpp
   ../src/Solvers/Solvers2D/SolverHeatDirichlet.cpp
   ../src/Solvers/Solvers2D/SolverAdvectionDirichlet.cpp

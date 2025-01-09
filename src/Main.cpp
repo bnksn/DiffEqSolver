@@ -2,14 +2,15 @@
 #include <memory>
 
 #include "Solvers/Solvers1D/SolverPolynomial.hpp"
-#include "Solvers/Solvers1D/SolverSine.hpp"
+#include "Solvers/Solvers1D/SolverTrig.hpp"
 #include "Solvers/Solvers2D/SolverAdvectionDirichlet.hpp"
 #include "Solvers/Solvers2D/SolverHeatDirichlet.hpp"
 
-enum class UserChoice { Polynomial, Sine, Heat, Advection };
+enum class UserChoice { Polynomial, Trig, Heat, Advection };
 enum class Dimension { Two, Three };
 
-std::unique_ptr<Solver> GetSolver(const UserChoice choice, const double xFinal,
+std::unique_ptr<Solver> GetSolver(const UserChoice choice,
+                                  const TrigFunc trigFunc, double xFinal,
                                   const unsigned int xNumSteps,
                                   const double yInitial, const double yFinal,
                                   const unsigned int yNumSteps,
@@ -19,10 +20,10 @@ std::unique_ptr<Solver> GetSolver(const UserChoice choice, const double xFinal,
             std::cout << "Polynomial\n";
             return std::make_unique<SolverPolynomial>(
                 xFinal, xNumSteps, yInitial, std::vector{1.0, 1.0, 2.0});
-        case (UserChoice::Sine):
-            std::cout << "Sine\n";
-            return std::make_unique<SolverSine>(xFinal, xNumSteps, yInitial,
-                                                std::vector{1.0, 1.0});
+        case (UserChoice::Trig):
+            std::cout << "Trig\n";
+            return std::make_unique<SolverTrig>(
+                xFinal, xNumSteps, yInitial, std::vector{1.0, 1.0}, trigFunc);
         case (UserChoice::Heat):
             std::cout << "Heat\n";
             return std::make_unique<SolverHeatDirichlet>(
@@ -38,8 +39,9 @@ std::unique_ptr<Solver> GetSolver(const UserChoice choice, const double xFinal,
 
 int main() {
     // simulating user input
-    const auto dimension = Dimension::Three;
-    const auto choice = UserChoice::Advection;
+    const auto dimension = Dimension::Two;
+    const auto choice = UserChoice::Trig;
+    const auto trigFunc = TrigFunc::Cosine;
     const auto xFinal = 1.0;
     const auto xNumSteps = 5u;
     const auto yInitial = 1.0;
@@ -47,8 +49,8 @@ int main() {
     const auto yNumSteps = 100u;
     const auto zInitial = {1.0, 2.0, 3.0, 2.0, 1.0};
 
-    const auto solver = GetSolver(choice, xFinal, xNumSteps, yInitial, yFinal,
-                                  yNumSteps, zInitial);
+    const auto solver = GetSolver(choice, trigFunc, xFinal, xNumSteps, yInitial,
+                                  yFinal, yNumSteps, zInitial);
     const auto& result = solver->Solve();
 
     // simulating 2D plot
