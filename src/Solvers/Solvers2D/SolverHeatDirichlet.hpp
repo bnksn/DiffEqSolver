@@ -12,5 +12,5 @@ class SolverHeatDirichlet : public Solver2D {
                         const std::vector<double>& zInitial,
                         const double thermalDiffusivity);
 
-    std::vector<double> Solve() const;
+    std::vector<double> Solve() const override;
 };

@@ -17,11 +17,8 @@ SolverHeatDirichlet::SolverHeatDirichlet(const double xFinal,
 }
 
 std::vector<double> SolverHeatDirichlet::Solve() const {
-    if (this->xNumSteps <= 1) {
-        return this->flattenOutput(std::vector(this->yNumSteps + 1, zInitial));
-    }
-
     auto zValues = std::vector<std::vector<double>>{zInitial};
+
     for (auto i = 0u; i < this->yNumSteps; ++i) {
         const auto prevPoints = zValues.back();
         auto newPoints = std::vector<double>(prevPoints.size());

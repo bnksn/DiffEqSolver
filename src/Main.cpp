@@ -3,9 +3,10 @@
 
 #include "Solvers/Solvers1D/SolverPolynomial.hpp"
 #include "Solvers/Solvers1D/SolverSine.hpp"
+#include "Solvers/Solvers2D/SolverAdvectionDirichlet.hpp"
 #include "Solvers/Solvers2D/SolverHeatDirichlet.hpp"
 
-enum class UserChoice { Polynomial, Sine, Heat };
+enum class UserChoice { Polynomial, Sine, Heat, Advection };
 enum class Dimension { Two, Three };
 
 std::unique_ptr<Solver> GetSolver(const UserChoice choice, const double xFinal,
@@ -26,6 +27,10 @@ std::unique_ptr<Solver> GetSolver(const UserChoice choice, const double xFinal,
             std::cout << "Heat\n";
             return std::make_unique<SolverHeatDirichlet>(
                 xFinal, xNumSteps, yFinal, yNumSteps, zInitial, 0.1);
+        case (UserChoice::Advection):
+            std::cout << "Advection\n";
+            return std::make_unique<SolverAdvectionDirichlet>(
+                xFinal, xNumSteps, yFinal, yNumSteps, zInitial, 0.1);
         default:
             throw std::invalid_argument("invalid user input");
     }
@@ -34,7 +39,7 @@ std::unique_ptr<Solver> GetSolver(const UserChoice choice, const double xFinal,
 int main() {
     // simulating user input
     const auto dimension = Dimension::Three;
-    const auto choice = UserChoice::Heat;
+    const auto choice = UserChoice::Advection;
     const auto xFinal = 1.0;
     const auto xNumSteps = 5u;
     const auto yInitial = 1.0;

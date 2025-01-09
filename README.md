@@ -12,7 +12,6 @@
 ## To Do
 - Plot results
 - Support user input
-- Allow solving for functions of two variables
 - Boundary conditions
 - Remove headers and use modules
 - Tests
