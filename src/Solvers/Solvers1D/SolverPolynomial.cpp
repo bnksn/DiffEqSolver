@@ -8,7 +8,7 @@ SolverPolynomial::SolverPolynomial(const double xFinal,
                                    const std::vector<double>& coeffs)
     : Solver1D(xFinal, xNumSteps, yInitial, coeffs) {}
 
-double SolverPolynomial::evaluatePolynomial(const int input) const {
+double SolverPolynomial::evaluatePolynomial(const double input) const {
     auto result = 0;
 
     auto currPower = 0u;

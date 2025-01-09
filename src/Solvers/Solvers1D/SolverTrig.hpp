@@ -6,7 +6,7 @@
 class SolverTrig : public Solver1D {
    private:
     TrigFunc trigFunc;
-    double evaluateTrig(const int input) const;
+    double evaluateTrig(const double input) const;
 
    public:
     SolverTrig(const double xFinal, const unsigned int xNumSteps,

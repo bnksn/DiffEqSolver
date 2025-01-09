@@ -4,7 +4,7 @@
 
 class SolverPolynomial : public Solver1D {
    private:
-    double evaluatePolynomial(const int input) const;
+    double evaluatePolynomial(const double input) const;
 
    public:
     SolverPolynomial(const double xFinal, const unsigned int xNumSteps,

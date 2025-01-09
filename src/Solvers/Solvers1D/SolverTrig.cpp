@@ -10,7 +10,7 @@ SolverTrig::SolverTrig(const double xFinal, const unsigned int xNumSteps,
     this->trigFunc = trigFunc;
 }
 
-double SolverTrig::evaluateTrig(const int input) const {
+double SolverTrig::evaluateTrig(const double input) const {
     switch (this->trigFunc) {
         case (TrigFunc::Sine):
             return this->coeffs[0] * std::sin(this->coeffs[1] * input);
