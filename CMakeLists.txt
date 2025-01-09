@@ -8,8 +8,11 @@ project(DiffEqSolver)
 add_executable(DiffEqSolver 
   ../src/Main.cpp
   ../src/Solvers/Solver.cpp
-  ../src/Solvers/Solver1D.cpp
-  ../src/Solvers/Solver2D.cpp
+  ../src/Solvers/Solvers1D/Solver1D.cpp
+  ../src/Solvers/Solvers1D/SolverPolynomial.cpp
+  ../src/Solvers/Solvers1D/SolverSine.cpp
+  ../src/Solvers/Solvers2D/Solver2D.cpp
+  ../src/Solvers/Solvers2D/SolverHeatDirichlet.cpp
 )
 
 if (MSVC)

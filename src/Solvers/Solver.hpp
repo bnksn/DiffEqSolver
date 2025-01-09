@@ -8,6 +8,8 @@ class Solver {
     unsigned int xNumSteps;
     double dx;
 
-   public:
     Solver(const double xFinal, const unsigned int xNumSteps);
+
+   public:
+    std::vector<double> virtual Solve() const = 0;
 };
