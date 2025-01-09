@@ -35,5 +35,5 @@ std::vector<double> SolverAdvectionDirichlet::Solve() const {
         zValues.push_back(newPoints);
     }
 
-    return flattenOutput(zValues);
+    return FlattenOutput(zValues);
 }

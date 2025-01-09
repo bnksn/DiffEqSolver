@@ -12,7 +12,7 @@ Solver2D::Solver2D(const double xFinal, const unsigned int xNumSteps,
     this->zInitial = zInitial;
 }
 
-std::vector<double> Solver2D::flattenOutput(
+std::vector<double> Solver2D::FlattenOutput(
     const std::vector<std::vector<double>>& output) const {
     auto flatOutput = std::vector<double>();
 

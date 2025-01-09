@@ -9,7 +9,7 @@ class Solver2D : public Solver {
     double dy;
     std::vector<double> zInitial;
 
-    std::vector<double> flattenOutput(
+    std::vector<double> FlattenOutput(
         const std::vector<std::vector<double>>& output) const;
 
    public:
