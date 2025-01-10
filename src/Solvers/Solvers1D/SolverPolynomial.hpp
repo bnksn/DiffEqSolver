@@ -8,7 +8,7 @@ class SolverPolynomial : public Solver1D {
     double evaluatePolynomial(const double input) const;
 
    public:
-    SolverPolynomial(const double xFinal, const unsigned int xNumSteps,
+    SolverPolynomial(const double xFinal, const int xNumSteps,
                      const double yInitial, const std::vector<double>& coeffs);
 
     [[nodiscard]]

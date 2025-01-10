@@ -3,7 +3,7 @@
 #include <cmath>
 #include <iostream>
 
-SolverTrig::SolverTrig(const double xFinal, const unsigned int xNumSteps,
+SolverTrig::SolverTrig(const double xFinal, const int xNumSteps,
                        const double yInitial, const std::vector<double>& coeffs,
                        const TrigFunc trigFunc)
     : Solver1D(xFinal, xNumSteps, yInitial, coeffs) {
@@ -26,7 +26,7 @@ double SolverTrig::evaluateTrig(const double input) const {
 std::vector<double> SolverTrig::Solve() const {
     auto yValues = std::vector{this->yInitial};
 
-    for (auto stepsTaken = 0u; stepsTaken < this->xNumSteps; ++stepsTaken) {
+    for (auto stepsTaken = 0; stepsTaken < this->xNumSteps; ++stepsTaken) {
         const auto xCurr = stepsTaken * this->dx;
         const auto yOld = yValues.back();
         const auto yNew = yOld + this->dx * evaluateTrig(xCurr);

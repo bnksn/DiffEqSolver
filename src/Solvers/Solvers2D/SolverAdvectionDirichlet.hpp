@@ -7,8 +7,8 @@ class SolverAdvectionDirichlet : public Solver2D {
     double multiplier;
 
    public:
-    SolverAdvectionDirichlet(const double xFinal, const unsigned int xNumSteps,
-                             const double yFinal, const unsigned int yNumSteps,
+    SolverAdvectionDirichlet(const double xFinal, const int xNumSteps,
+                             const double yFinal, const int yNumSteps,
                              const std::vector<double>& zInitial,
                              const double velocity);
 

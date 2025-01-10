@@ -7,6 +7,6 @@ class Solver1D : public Solver {
     double yInitial;
     std::vector<double> coeffs;
 
-    Solver1D(const double xFinal, const unsigned int xNumSteps,
-             const double yInitial, const std::vector<double>& coeffs);
+    Solver1D(const double xFinal, const int xNumSteps, const double yInitial,
+             const std::vector<double>& coeffs);
 };

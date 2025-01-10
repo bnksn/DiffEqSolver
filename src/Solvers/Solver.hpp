@@ -5,10 +5,10 @@
 class Solver {
    protected:
     double xFinal;
-    unsigned int xNumSteps;
+    int xNumSteps;
     double dx;
 
-    Solver(const double xFinal, const unsigned int xNumSteps);
+    Solver(const double xFinal, const int xNumSteps);
 
    public:
     [[nodiscard]] std::vector<double> virtual Solve() const = 0;

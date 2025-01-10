@@ -4,8 +4,8 @@
 #include <iostream>
 
 SolverAdvectionDirichlet::SolverAdvectionDirichlet(
-    const double xFinal, const unsigned int xNumSteps, const double yFinal,
-    const unsigned int yNumSteps, const std::vector<double>& zInitial,
+    const double xFinal, const int xNumSteps, const double yFinal,
+    const int yNumSteps, const std::vector<double>& zInitial,
     const double velocity)
     : Solver2D(xFinal, xNumSteps, yFinal, yNumSteps, zInitial) {
     this->multiplier = velocity * this->dy / this->dx;

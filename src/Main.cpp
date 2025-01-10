@@ -12,9 +12,8 @@ enum class Dimension { Two, Three };
 [[nodiscard]]
 std::unique_ptr<Solver> GetSolver(const UserChoice choice,
                                   const TrigFunc trigFunc, double xFinal,
-                                  const unsigned int xNumSteps,
-                                  const double yInitial, const double yFinal,
-                                  const unsigned int yNumSteps,
+                                  const int xNumSteps, const double yInitial,
+                                  const double yFinal, const int yNumSteps,
                                   const std::vector<double>& zInitial) {
     switch (choice) {
         case (UserChoice::Polynomial):
@@ -44,10 +43,10 @@ int main() {
     const auto choice = UserChoice::Trig;
     const auto trigFunc = TrigFunc::Cosine;
     const auto xFinal = 1.0;
-    const auto xNumSteps = 5u;
+    const auto xNumSteps = 5;
     const auto yInitial = 1.0;
     const auto yFinal = 1.0;
-    const auto yNumSteps = 100u;
+    const auto yNumSteps = 100;
     const auto zInitial = {1.0, 2.0, 3.0, 2.0, 1.0};
 
     const auto solver = GetSolver(choice, trigFunc, xFinal, xNumSteps, yInitial,
@@ -64,7 +63,7 @@ int main() {
 
     // simulating 3D plot
     if (dimension == Dimension::Three) {
-        auto currIndex = 0u;
+        auto currIndex = 0;
         for (const auto num : result) {
             std::cout << num << ' ';
             if ((++currIndex) % xNumSteps == 0) {

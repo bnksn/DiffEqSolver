@@ -11,9 +11,8 @@ class SolverTrig : public Solver1D {
     double evaluateTrig(const double input) const;
 
    public:
-    SolverTrig(const double xFinal, const unsigned int xNumSteps,
-               const double yInitial, const std::vector<double>& coeffs,
-               const TrigFunc trigFunc);
+    SolverTrig(const double xFinal, const int xNumSteps, const double yInitial,
+               const std::vector<double>& coeffs, const TrigFunc trigFunc);
 
     [[nodiscard]]
     std::vector<double> Solve() const override;

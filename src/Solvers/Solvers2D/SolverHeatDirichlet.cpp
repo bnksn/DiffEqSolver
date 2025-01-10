@@ -4,9 +4,9 @@
 #include <iostream>
 
 SolverHeatDirichlet::SolverHeatDirichlet(const double xFinal,
-                                         const unsigned int xNumSteps,
+                                         const int xNumSteps,
                                          const double yFinal,
-                                         const unsigned int yNumSteps,
+                                         const int yNumSteps,
                                          const std::vector<double>& zInitial,
                                          const double thermalDiffusivity)
     : Solver2D(xFinal, xNumSteps, yFinal, yNumSteps, zInitial) {
@@ -19,7 +19,7 @@ SolverHeatDirichlet::SolverHeatDirichlet(const double xFinal,
 std::vector<double> SolverHeatDirichlet::Solve() const {
     auto zValues = std::vector<std::vector<double>>{zInitial};
 
-    for (auto i = 0u; i < this->yNumSteps; ++i) {
+    for (auto i = 0; i < this->yNumSteps; ++i) {
         const auto prevPoints = zValues.back();
         auto newPoints = std::vector<double>(prevPoints.size());
 

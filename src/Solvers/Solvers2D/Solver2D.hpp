@@ -5,7 +5,7 @@
 class Solver2D : public Solver {
    protected:
     double yFinal;
-    unsigned int yNumSteps;
+    int yNumSteps;
     double dy;
     std::vector<double> zInitial;
 
@@ -14,7 +14,6 @@ class Solver2D : public Solver {
         const std::vector<std::vector<double>>& output) const;
 
    public:
-    Solver2D(const double xFinal, const unsigned int xNumSteps,
-             const double yFinal, const unsigned int yNumSteps,
-             const std::vector<double>& zInitial);
+    Solver2D(const double xFinal, const int xNumSteps, const double yFinal,
+             const int yNumSteps, const std::vector<double>& zInitial);
 };
