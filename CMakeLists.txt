@@ -12,8 +12,8 @@ add_executable(DiffEqSolver
   ../src/Solvers/Solvers1D/SolverPolynomial.cpp
   ../src/Solvers/Solvers1D/SolverTrig.cpp
   ../src/Solvers/Solvers2D/Solver2D.cpp
-  ../src/Solvers/Solvers2D/SolverHeatDirichlet.cpp
-  ../src/Solvers/Solvers2D/SolverAdvectionDirichlet.cpp
+  ../src/Solvers/Solvers2D/SolverHeat.cpp
+  ../src/Solvers/Solvers2D/SolverAdvection.cpp
 )
 
 if (MSVC)

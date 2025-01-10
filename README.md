@@ -12,6 +12,5 @@
 ## To Do
 - Plot results
 - Support user input
-- Boundary conditions
 - Remove headers and use modules
 - Tests

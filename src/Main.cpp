@@ -3,17 +3,19 @@
 
 #include "Solvers/Solvers1D/SolverPolynomial.hpp"
 #include "Solvers/Solvers1D/SolverTrig.hpp"
-#include "Solvers/Solvers2D/SolverAdvectionDirichlet.hpp"
-#include "Solvers/Solvers2D/SolverHeatDirichlet.hpp"
+#include "Solvers/Solvers2D/SolverAdvection.hpp"
+#include "Solvers/Solvers2D/SolverHeat.hpp"
 
 enum class UserChoice { Polynomial, Trig, Heat, Advection };
 enum class Dimension { Two, Three };
 
 [[nodiscard]]
 std::unique_ptr<Solver> GetSolver(const UserChoice choice,
-                                  const TrigFunc trigFunc, double xFinal,
-                                  const int xNumSteps, const double yInitial,
-                                  const double yFinal, const int yNumSteps,
+                                  const TrigFunc trigFunc,
+                                  const BoundaryCondition boundaryCondition,
+                                  double xFinal, const int xNumSteps,
+                                  const double yInitial, const double yFinal,
+                                  const int yNumSteps,
                                   const std::vector<double>& zInitial) {
     switch (choice) {
         case (UserChoice::Polynomial):
@@ -26,12 +28,14 @@ std::unique_ptr<Solver> GetSolver(const UserChoice choice,
                 xFinal, xNumSteps, yInitial, std::vector{1.0, 1.0}, trigFunc);
         case (UserChoice::Heat):
             std::cout << "Heat\n";
-            return std::make_unique<SolverHeatDirichlet>(
-                xFinal, xNumSteps, yFinal, yNumSteps, zInitial, 0.1);
+            return std::make_unique<SolverHeat>(xFinal, xNumSteps, yFinal,
+                                                yNumSteps, zInitial, 0.1,
+                                                boundaryCondition);
         case (UserChoice::Advection):
             std::cout << "Advection\n";
-            return std::make_unique<SolverAdvectionDirichlet>(
-                xFinal, xNumSteps, yFinal, yNumSteps, zInitial, 0.1);
+            return std::make_unique<SolverAdvection>(xFinal, xNumSteps, yFinal,
+                                                     yNumSteps, zInitial, 0.1,
+                                                     boundaryCondition);
         default:
             throw std::invalid_argument("invalid user input");
     }
@@ -39,9 +43,10 @@ std::unique_ptr<Solver> GetSolver(const UserChoice choice,
 
 int main() {
     // simulating user input
-    const auto dimension = Dimension::Two;
-    const auto choice = UserChoice::Trig;
+    const auto dimension = Dimension::Three;
+    const auto choice = UserChoice::Heat;
     const auto trigFunc = TrigFunc::Cosine;
+    const auto boundaryCondition = BoundaryCondition::Neumann;
     const auto xFinal = 1.0;
     const auto xNumSteps = 5;
     const auto yInitial = 1.0;
@@ -49,8 +54,9 @@ int main() {
     const auto yNumSteps = 100;
     const auto zInitial = {1.0, 2.0, 3.0, 2.0, 1.0};
 
-    const auto solver = GetSolver(choice, trigFunc, xFinal, xNumSteps, yInitial,
-                                  yFinal, yNumSteps, zInitial);
+    const auto solver =
+        GetSolver(choice, trigFunc, boundaryCondition, xFinal, xNumSteps,
+                  yInitial, yFinal, yNumSteps, zInitial);
     const auto& result = solver->Solve();
 
     // simulating 2D plot
