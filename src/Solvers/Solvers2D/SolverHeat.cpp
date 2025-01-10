@@ -16,6 +16,7 @@ SolverHeat::SolverHeat(const double xFinal, const int xNumSteps,
     }
 }
 
+[[nodiscard]]
 std::vector<double> SolverHeat::Solve() const {
     auto zValues = std::vector<std::vector<double>>{zInitial};
 

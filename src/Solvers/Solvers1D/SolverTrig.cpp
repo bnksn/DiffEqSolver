@@ -10,6 +10,7 @@ SolverTrig::SolverTrig(const double xFinal, const int xNumSteps,
     this->trigFunc = trigFunc;
 }
 
+[[nodiscard]]
 double SolverTrig::evaluateTrig(const double input) const {
     switch (this->trigFunc) {
         case (TrigFunc::Sine):
@@ -23,6 +24,7 @@ double SolverTrig::evaluateTrig(const double input) const {
     }
 }
 
+[[nodiscard]]
 std::vector<double> SolverTrig::Solve() const {
     auto yValues = std::vector{this->yInitial};
 
