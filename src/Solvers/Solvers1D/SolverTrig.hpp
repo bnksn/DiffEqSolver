@@ -6,6 +6,8 @@
 class SolverTrig : public Solver1D {
    private:
     TrigFunc trigFunc;
+
+    [[nodiscard]]
     double evaluateTrig(const double input) const;
 
    public:
@@ -13,5 +15,6 @@ class SolverTrig : public Solver1D {
                const double yInitial, const std::vector<double>& coeffs,
                const TrigFunc trigFunc);
 
+    [[nodiscard]]
     std::vector<double> Solve() const override;
 };

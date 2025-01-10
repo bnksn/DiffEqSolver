@@ -12,5 +12,6 @@ class SolverAdvectionDirichlet : public Solver2D {
                              const std::vector<double>& zInitial,
                              const double velocity);
 
+    [[nodiscard]]
     std::vector<double> Solve() const override;
 };

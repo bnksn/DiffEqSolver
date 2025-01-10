@@ -9,6 +9,7 @@
 enum class UserChoice { Polynomial, Trig, Heat, Advection };
 enum class Dimension { Two, Three };
 
+[[nodiscard]]
 std::unique_ptr<Solver> GetSolver(const UserChoice choice,
                                   const TrigFunc trigFunc, double xFinal,
                                   const unsigned int xNumSteps,

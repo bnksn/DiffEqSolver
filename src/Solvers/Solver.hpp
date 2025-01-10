@@ -11,5 +11,5 @@ class Solver {
     Solver(const double xFinal, const unsigned int xNumSteps);
 
    public:
-    std::vector<double> virtual Solve() const = 0;
+    [[nodiscard]] std::vector<double> virtual Solve() const = 0;
 };

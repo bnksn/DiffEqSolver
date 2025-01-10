@@ -1,6 +1,4 @@
-# Build-related
 build/*
-!build/CMakeLists.txt
 
 # VS Code
 c_cpp_properties.json
