@@ -7,7 +7,7 @@ SolverWave::SolverWave(const double xFinal, const int xNumSteps,
                        const double yFinal, const int yNumSteps,
                        const std::vector<double>& zInitial,
                        const double waveSpeed,
-                       const BoundaryCondition boundaryCondition)
+                       const BoundaryCondition boundaryCondition) noexcept
     : Solver2D(xFinal, xNumSteps, yFinal, yNumSteps, zInitial,
                boundaryCondition) {
     this->multiplier =
@@ -20,7 +20,7 @@ SolverWave::SolverWave(const double xFinal, const int xNumSteps,
 [[nodiscard]]
 std::vector<double> SolverWave::Solve() const {
     // Assuming initial velocity is 0
-    // First and second displacements atch
+    // First and second displacements match
     auto zValues =
         std::vector<std::vector<double>>{this->zInitial, this->zInitial};
 

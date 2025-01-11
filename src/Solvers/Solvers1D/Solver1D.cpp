@@ -3,7 +3,8 @@
 #include <cmath>
 
 Solver1D::Solver1D(const double xFinal, const int xNumSteps,
-                   const double yInitial, const std::vector<double>& coeffs)
+                   const double yInitial,
+                   const std::vector<double>& coeffs) noexcept
     : Solver(xFinal, xNumSteps) {
     this->yInitial = yInitial;
     this->coeffs = coeffs;

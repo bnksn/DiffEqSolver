@@ -11,7 +11,7 @@ class SolverAdvection : public Solver2D {
     SolverAdvection(const double xFinal, const int xNumSteps,
                     const double yFinal, const int yNumSteps,
                     const std::vector<double>& zInitial, const double velocity,
-                    const BoundaryCondition boundaryCondition);
+                    const BoundaryCondition boundaryCondition) noexcept;
 
     [[nodiscard]]
     std::vector<double> Solve() const override;

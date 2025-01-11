@@ -7,7 +7,7 @@ SolverHeat::SolverHeat(const double xFinal, const int xNumSteps,
                        const double yFinal, const int yNumSteps,
                        const std::vector<double>& zInitial,
                        const double thermalDiffusivity,
-                       const BoundaryCondition boundaryCondition)
+                       const BoundaryCondition boundaryCondition) noexcept
     : Solver2D(xFinal, xNumSteps, yFinal, yNumSteps, zInitial,
                boundaryCondition) {
     this->multiplier = thermalDiffusivity * this->dy / (this->dx * this->dx);

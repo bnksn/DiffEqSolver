@@ -4,11 +4,11 @@
 
 SolverPolynomial::SolverPolynomial(const double xFinal, const int xNumSteps,
                                    const double yInitial,
-                                   const std::vector<double>& coeffs)
+                                   const std::vector<double>& coeffs) noexcept
     : Solver1D(xFinal, xNumSteps, yInitial, coeffs) {}
 
 [[nodiscard]]
-double SolverPolynomial::evaluatePolynomial(const double input) const {
+double SolverPolynomial::evaluatePolynomial(const double input) const noexcept {
     auto result = 0;
 
     auto currPower = 0;

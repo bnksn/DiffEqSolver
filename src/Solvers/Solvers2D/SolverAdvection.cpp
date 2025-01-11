@@ -3,11 +3,10 @@
 #include <cmath>
 #include <iostream>
 
-SolverAdvection::SolverAdvection(const double xFinal, const int xNumSteps,
-                                 const double yFinal, const int yNumSteps,
-                                 const std::vector<double>& zInitial,
-                                 const double velocity,
-                                 const BoundaryCondition boundaryCondition)
+SolverAdvection::SolverAdvection(
+    const double xFinal, const int xNumSteps, const double yFinal,
+    const int yNumSteps, const std::vector<double>& zInitial,
+    const double velocity, const BoundaryCondition boundaryCondition) noexcept
     : Solver2D(xFinal, xNumSteps, yFinal, yNumSteps, zInitial,
                boundaryCondition) {
     this->multiplier = velocity * this->dy / this->dx;

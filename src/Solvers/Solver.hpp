@@ -8,7 +8,7 @@ class Solver {
     int xNumSteps;
     double dx;
 
-    Solver(const double xFinal, const int xNumSteps);
+    Solver(const double xFinal, const int xNumSteps) noexcept;
 
    public:
     [[nodiscard]] std::vector<double> virtual Solve() const = 0;

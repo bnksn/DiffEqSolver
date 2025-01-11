@@ -11,7 +11,7 @@ class SolverWave : public Solver2D {
     SolverWave(const double xFinal, const int xNumSteps, const double yFinal,
                const int yNumSteps, const std::vector<double>& zInitial,
                const double waveSpeed,
-               const BoundaryCondition boundaryCondition);
+               const BoundaryCondition boundaryCondition) noexcept;
 
     [[nodiscard]]
     std::vector<double> Solve() const override;
