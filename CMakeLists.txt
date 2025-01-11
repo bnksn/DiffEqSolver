@@ -14,6 +14,7 @@ add_executable(DiffEqSolver
   ../src/Solvers/Solvers2D/Solver2D.cpp
   ../src/Solvers/Solvers2D/SolverHeat.cpp
   ../src/Solvers/Solvers2D/SolverAdvection.cpp
+  ../src/Solvers/Solvers2D/SolverWave.cpp
 )
 
 if (MSVC)

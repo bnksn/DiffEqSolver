@@ -12,17 +12,17 @@ SolverHeat::SolverHeat(const double xFinal, const int xNumSteps,
                boundaryCondition) {
     this->multiplier = thermalDiffusivity * this->dy / (this->dx * this->dx);
     if (this->multiplier > 0.5) {
-        std::cout << "Warning. Numerical instability.\n";
+        WarnNumericalUnstability();
     }
 }
 
 [[nodiscard]]
 std::vector<double> SolverHeat::Solve() const {
-    auto zValues = std::vector<std::vector<double>>{zInitial};
+    auto zValues = std::vector<std::vector<double>>{this->zInitial};
 
-    for (auto i = 0; i < this->yNumSteps; ++i) {
+    for (auto step = 0; step < this->yNumSteps; ++step) {
         const auto prevPoints = zValues.back();
-        auto newPoints = EnforceBoundaryCondition(prevPoints);
+        auto newPoints = std::vector<double>(prevPoints.size());
 
         for (auto i = 1; i < prevPoints.size() - 1; ++i) {
             newPoints[i] =
@@ -30,6 +30,8 @@ std::vector<double> SolverHeat::Solve() const {
                 this->multiplier *
                     (prevPoints[i + 1] + prevPoints[i - 1] - 2 * prevPoints[i]);
         }
+
+        EnforceBoundaryCondition(newPoints, prevPoints);
 
         zValues.push_back(newPoints);
     }

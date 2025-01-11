@@ -11,7 +11,7 @@ SolverPolynomial::SolverPolynomial(const double xFinal, const int xNumSteps,
 double SolverPolynomial::evaluatePolynomial(const double input) const {
     auto result = 0;
 
-    auto currPower = 0u;
+    auto currPower = 0;
     for (const auto coeff : this->coeffs) {
         result += coeff * std::pow(input, currPower++);
     }

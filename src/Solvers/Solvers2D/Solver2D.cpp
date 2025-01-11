@@ -27,20 +27,20 @@ std::vector<double> Solver2D::FlattenOutput(
     return flatOutput;
 }
 
-[[nodiscard]]
-std::vector<double> Solver2D::EnforceBoundaryCondition(
+void Solver2D::EnforceBoundaryCondition(
+    std::vector<double>& newPoints,
     const std::vector<double>& prevPoints) const {
-    auto newPoints = std::vector<double>(prevPoints.size());
-
     if (this->boundaryCondition == BoundaryCondition::Dirichlet) {
         newPoints.front() = prevPoints.front();
         newPoints.back() = prevPoints.back();
     } else if (this->boundaryCondition == BoundaryCondition::Neumann) {
-        newPoints.front() = prevPoints[1];
-        newPoints.back() = prevPoints[prevPoints.size() - 2];
+        newPoints.front() = newPoints[1];
+        newPoints.back() = newPoints[newPoints.size() - 2];
     } else {
         throw std::invalid_argument("Boundary condition not recognised");
     }
+}
 
-    return newPoints;
+void Solver2D::WarnNumericalUnstability() const {
+    std::cout << "Warning. Numerical instability.\n";
 }

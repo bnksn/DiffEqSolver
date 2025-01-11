@@ -15,9 +15,10 @@ class Solver2D : public Solver {
     std::vector<double> FlattenOutput(
         const std::vector<std::vector<double>>& output) const;
 
-    [[nodiscard]]
-    std::vector<double> EnforceBoundaryCondition(
-        const std::vector<double>& prevPoints) const;
+    void EnforceBoundaryCondition(std::vector<double>& newPoints,
+                                  const std::vector<double>& prevPoints) const;
+
+    void WarnNumericalUnstability() const;
 
    public:
     Solver2D(const double xFinal, const int xNumSteps, const double yFinal,

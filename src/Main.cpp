@@ -5,8 +5,9 @@
 #include "Solvers/Solvers1D/SolverTrig.hpp"
 #include "Solvers/Solvers2D/SolverAdvection.hpp"
 #include "Solvers/Solvers2D/SolverHeat.hpp"
+#include "Solvers/Solvers2D/SolverWave.hpp"
 
-enum class UserChoice { Polynomial, Trig, Heat, Advection };
+enum class UserChoice { Polynomial, Trig, Heat, Advection, Wave };
 enum class Dimension { Two, Three };
 
 [[nodiscard]]
@@ -36,6 +37,11 @@ std::unique_ptr<Solver> GetSolver(const UserChoice choice,
             return std::make_unique<SolverAdvection>(xFinal, xNumSteps, yFinal,
                                                      yNumSteps, zInitial, 0.1,
                                                      boundaryCondition);
+        case (UserChoice::Wave):
+            std::cout << "Wave\n";
+            return std::make_unique<SolverWave>(xFinal, xNumSteps, yFinal,
+                                                yNumSteps, zInitial, 1,
+                                                boundaryCondition);
         default:
             throw std::invalid_argument("invalid user input");
     }
@@ -44,9 +50,9 @@ std::unique_ptr<Solver> GetSolver(const UserChoice choice,
 int main() {
     // simulating user input
     const auto dimension = Dimension::Three;
-    const auto choice = UserChoice::Heat;
+    const auto choice = UserChoice::Wave;
     const auto trigFunc = TrigFunc::Cosine;
-    const auto boundaryCondition = BoundaryCondition::Neumann;
+    const auto boundaryCondition = BoundaryCondition::Dirichlet;
     const auto xFinal = 1.0;
     const auto xNumSteps = 5;
     const auto yInitial = 1.0;

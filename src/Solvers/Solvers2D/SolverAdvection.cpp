@@ -12,23 +12,25 @@ SolverAdvection::SolverAdvection(const double xFinal, const int xNumSteps,
                boundaryCondition) {
     this->multiplier = velocity * this->dy / this->dx;
     if (this->multiplier > 1) {
-        std::cout << "Warning. Numerical instability.\n";
+        WarnNumericalUnstability();
     }
 }
 
 [[nodiscard]]
 std::vector<double> SolverAdvection::Solve() const {
-    auto zValues = std::vector<std::vector<double>>{zInitial};
+    auto zValues = std::vector<std::vector<double>>{this->zInitial};
 
-    for (auto i = 0u; i < this->yNumSteps; ++i) {
+    for (auto step = 0; step < this->yNumSteps; ++step) {
         const auto prevPoints = zValues.back();
-        auto newPoints = EnforceBoundaryCondition(prevPoints);
+        auto newPoints = std::vector<double>(prevPoints.size());
 
         for (auto i = 1; i < prevPoints.size() - 1; ++i) {
             newPoints[i] = 0.5 * (prevPoints[i + 1] + prevPoints[i - 1]) -
                            0.5 * this->multiplier *
                                (prevPoints[i + 1] - prevPoints[i - 1]);
         }
+
+        EnforceBoundaryCondition(newPoints, prevPoints);
 
         zValues.push_back(newPoints);
     }
