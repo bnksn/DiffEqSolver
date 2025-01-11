@@ -3,7 +3,7 @@
 #include "../../Math/TrigFunc.hpp"
 #include "Solver1D.hpp"
 
-class SolverTrig : public Solver1D {
+class SolverTrig final : public Solver1D {
    private:
     TrigFunc trigFunc;
 
@@ -16,5 +16,5 @@ class SolverTrig : public Solver1D {
                const TrigFunc trigFunc) noexcept;
 
     [[nodiscard]]
-    std::vector<double> Solve() const override;
+    std::vector<double> solve() const override final;
 };

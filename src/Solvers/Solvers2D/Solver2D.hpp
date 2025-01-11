@@ -12,13 +12,13 @@ class Solver2D : public Solver {
     BoundaryCondition boundaryCondition;
 
     [[nodiscard]]
-    std::vector<double> FlattenOutput(
+    std::vector<double> flattenOutput(
         const std::vector<std::vector<double>>& output) const noexcept;
 
-    void EnforceBoundaryCondition(std::vector<double>& newPoints,
+    void enforceBoundaryCondition(std::vector<double>& newPoints,
                                   const std::vector<double>& prevPoints) const;
 
-    void WarnNumericalUnstability() const noexcept;
+    void warnNumericalUnstability() const noexcept;
 
    public:
     Solver2D(const double xFinal, const int xNumSteps, const double yFinal,

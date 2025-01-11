@@ -25,7 +25,7 @@ double SolverTrig::evaluateTrig(const double input) const {
 }
 
 [[nodiscard]]
-std::vector<double> SolverTrig::Solve() const {
+std::vector<double> SolverTrig::solve() const {
     auto yValues = std::vector{this->yInitial};
 
     for (auto stepsTaken = 0; stepsTaken < this->xNumSteps; ++stepsTaken) {

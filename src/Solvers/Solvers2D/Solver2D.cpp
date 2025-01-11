@@ -16,7 +16,7 @@ Solver2D::Solver2D(const double xFinal, const int xNumSteps,
 }
 
 [[nodiscard]]
-std::vector<double> Solver2D::FlattenOutput(
+std::vector<double> Solver2D::flattenOutput(
     const std::vector<std::vector<double>>& output) const noexcept {
     auto flatOutput = std::vector<double>();
 
@@ -27,7 +27,7 @@ std::vector<double> Solver2D::FlattenOutput(
     return flatOutput;
 }
 
-void Solver2D::EnforceBoundaryCondition(
+void Solver2D::enforceBoundaryCondition(
     std::vector<double>& newPoints,
     const std::vector<double>& prevPoints) const {
     if (this->boundaryCondition == BoundaryCondition::Dirichlet) {
@@ -41,6 +41,6 @@ void Solver2D::EnforceBoundaryCondition(
     }
 }
 
-void Solver2D::WarnNumericalUnstability() const noexcept {
+void Solver2D::warnNumericalUnstability() const noexcept {
     std::cout << "Warning. Numerical instability.\n";
 }

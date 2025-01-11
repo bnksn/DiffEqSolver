@@ -2,7 +2,7 @@
 
 #include "Solver1D.hpp"
 
-class SolverPolynomial : public Solver1D {
+class SolverPolynomial final : public Solver1D {
    private:
     [[nodiscard]]
     double evaluatePolynomial(const double input) const noexcept;
@@ -13,5 +13,5 @@ class SolverPolynomial : public Solver1D {
                      const std::vector<double>& coeffs) noexcept;
 
     [[nodiscard]]
-    std::vector<double> Solve() const override;
+    std::vector<double> solve() const override final;
 };

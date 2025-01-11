@@ -9,7 +9,7 @@ SolverPolynomial::SolverPolynomial(const double xFinal, const int xNumSteps,
 
 [[nodiscard]]
 double SolverPolynomial::evaluatePolynomial(const double input) const noexcept {
-    auto result = 0;
+    auto result = 0.0;
 
     auto currPower = 0;
     for (const auto coeff : this->coeffs) {
@@ -20,7 +20,7 @@ double SolverPolynomial::evaluatePolynomial(const double input) const noexcept {
 }
 
 [[nodiscard]]
-std::vector<double> SolverPolynomial::Solve() const {
+std::vector<double> SolverPolynomial::solve() const {
     auto yValues = std::vector{this->yInitial};
 
     for (auto stepsTaken = 0u; stepsTaken < this->xNumSteps; ++stepsTaken) {

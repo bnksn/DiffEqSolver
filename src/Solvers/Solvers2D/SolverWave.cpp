@@ -13,12 +13,12 @@ SolverWave::SolverWave(const double xFinal, const int xNumSteps,
     this->multiplier =
         std::pow(waveSpeed * this->dy / (this->dx * this->dx), 2);
     if (this->multiplier > 1) {
-        WarnNumericalUnstability();
+        warnNumericalUnstability();
     }
 }
 
 [[nodiscard]]
-std::vector<double> SolverWave::Solve() const {
+std::vector<double> SolverWave::solve() const {
     // Assuming initial velocity is 0
     // First and second displacements match
     auto zValues =
@@ -37,10 +37,10 @@ std::vector<double> SolverWave::Solve() const {
                     (prevPoints[i + 1] - 2 * prevPoints[i] + prevPoints[i - 1]);
         }
 
-        EnforceBoundaryCondition(newPoints, prevPoints);
+        enforceBoundaryCondition(newPoints, prevPoints);
 
         zValues.push_back(newPoints);
     }
 
-    return FlattenOutput(zValues);
+    return flattenOutput(zValues);
 }

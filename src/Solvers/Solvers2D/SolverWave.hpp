@@ -3,7 +3,7 @@
 #include "../../Math/BoundaryCondition.hpp"
 #include "Solver2D.hpp"
 
-class SolverWave : public Solver2D {
+class SolverWave final : public Solver2D {
    private:
     double multiplier;
 
@@ -14,5 +14,5 @@ class SolverWave : public Solver2D {
                const BoundaryCondition boundaryCondition) noexcept;
 
     [[nodiscard]]
-    std::vector<double> Solve() const override;
+    std::vector<double> solve() const override final;
 };
