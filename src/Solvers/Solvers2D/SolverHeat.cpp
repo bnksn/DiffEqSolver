@@ -12,7 +12,7 @@ SolverHeat::SolverHeat(const double xFinal, const int xNumSteps,
                boundaryCondition) {
     this->multiplier = thermalDiffusivity * this->dy / (this->dx * this->dx);
     if (this->multiplier > 0.5) {
-        warnNumericalUnstability();
+        warnNumericalInstability();
     }
 }
 

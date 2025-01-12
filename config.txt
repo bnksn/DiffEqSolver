@@ -1,0 +1,16 @@
+resultPath=data.txt
+dimension=3
+solver=wave
+trigFunc=cosine
+boundaryCondition=dirichlet
+waveConstant=0.11
+advectionConstant=0.12
+heatConstant=0.13
+xFinal=1.0
+xNumSteps=20
+yInitial=2.0
+zInitial=1.0,1.1,1.2,1.3,1.4,1.5,1.5,1.6,1.6,1.6,1.6,1.6,1.6,1.6,1.5,1.5,1.4,1.3,1.2,1.1,1.0
+yFinal=2.0
+yNumSteps=200
+polynomialCoeffs=1.0,1.0,2.0
+trigCoeffs=1.0,1.0

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Math/TrigFunc.hpp"
+#include "../../Input/UserInputs.hpp"
 #include "Solver1D.hpp"
 
 class SolverTrig final : public Solver1D {

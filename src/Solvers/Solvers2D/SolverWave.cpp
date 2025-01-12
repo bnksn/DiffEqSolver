@@ -13,7 +13,7 @@ SolverWave::SolverWave(const double xFinal, const int xNumSteps,
     this->multiplier =
         std::pow(waveSpeed * this->dy / (this->dx * this->dx), 2);
     if (this->multiplier > 1) {
-        warnNumericalUnstability();
+        warnNumericalInstability();
     }
 }
 

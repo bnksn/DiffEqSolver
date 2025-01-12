@@ -11,7 +11,7 @@ SolverAdvection::SolverAdvection(
                boundaryCondition) {
     this->multiplier = velocity * this->dy / this->dx;
     if (this->multiplier > 1) {
-        warnNumericalUnstability();
+        warnNumericalInstability();
     }
 }
 

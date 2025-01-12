@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../../Math/BoundaryCondition.hpp"
 #include "Solver2D.hpp"
 
 class SolverAdvection final : public Solver2D {
