@@ -4,15 +4,16 @@
 #include <vector>
 
 class ResultWriter final {
+   private:
+    std::vector<double> results;
+    std::string resultsPath;
+
    public:
-    void write2d(const std::vector<double>& results,
-                 const std::string& resultPath, const int xNumSteps,
-                 const double xFinal) const;
+    ResultWriter(const std::vector<double>& results,
+                 const std::string& resultPath) noexcept;
 
-    void write3d(const std::vector<double>& results,
-                 const std::string& resultPath, const int xNumSteps,
-                 const double xFinal, const int yNumSteps,
+    void write2d(const int xNumSteps, const double xFinal) const;
+
+    void write3d(const int xNumSteps, const double xFinal, const int yNumSteps,
                  const double yFinal) const;
-
-    ResultWriter() noexcept;
 };

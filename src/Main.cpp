@@ -68,12 +68,11 @@ int main() {
                   yInitial, yFinal, yNumSteps, zInitial);
     const auto& results = solver->solve();
 
-    const auto resultWriter = ResultWriter();
+    const auto resultWriter = ResultWriter(results, resultPath);
     if (dimension == 2) {
-        resultWriter.write2d(results, resultPath, xNumSteps, xFinal);
+        resultWriter.write2d(xNumSteps, xFinal);
     } else if (dimension == 3) {
-        resultWriter.write3d(results, resultPath, xNumSteps, xFinal, yNumSteps,
-                             yFinal);
+        resultWriter.write3d(xNumSteps, xFinal, yNumSteps, yFinal);
     } else {
         throw std::invalid_argument("Dimension not valid");
     }
