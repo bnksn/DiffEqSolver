@@ -1,7 +1,8 @@
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+import matplotlib.pyplot as plt  # type: ignore
+from matplotlib.animation import FuncAnimation  # type: ignore
 import os
 import numpy as np
+import numpy.typing as npt
 
 
 def plot2d(xVals: list[float], yVals: list[float]) -> None:
@@ -13,8 +14,8 @@ def plot2d(xVals: list[float], yVals: list[float]) -> None:
 
 
 def plot3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
-    xValsUnique: np.ndarray[float] = np.unique(xVals)
-    yValsUnique: np.ndarray[float] = np.unique(yVals)
+    xValsUnique: npt.NDArray[np.float64] = np.unique(xVals)
+    yValsUnique: npt.NDArray[np.float64] = np.unique(yVals)
 
     X, Y = np.meshgrid(xValsUnique, yValsUnique)
 
@@ -38,20 +39,20 @@ def plot3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
 
 def anim3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
     xValsUnique: np.ndarray = np.unique(xVals)
-    zVals: np.ndarray = np.array(zVals)
+    zValsNumpy: np.ndarray = np.array(zVals)
 
     fig, ax = plt.subplots()
     ax.set_xlabel("X")
     ax.set_ylabel("Z")
     ax.set_title("X vs Z over time (Y)")
-    ax.set_ylim(min(zVals), max(zVals))
+    ax.set_ylim(min(zValsNumpy), max(zValsNumpy))
 
     xCount: int = len(xValsUnique)
-    (line,) = ax.plot(xValsUnique, zVals[:xCount])
+    (line,) = ax.plot(xValsUnique, zValsNumpy[:xCount])
 
     def animate(i: int) -> tuple[plt.Line2D]:
         zIndexSlice: slice = slice(i * xCount, i * xCount + xCount)
-        line.set_data(xValsUnique, zVals[zIndexSlice])
+        line.set_data(xValsUnique, zValsNumpy[zIndexSlice])
 
         return (line,)
 
@@ -67,10 +68,10 @@ if __name__ == "__main__":
     with open(currDir + "/" + dataFileName, "r") as dataFile:
         firstLine: str = dataFile.readline().strip()
         allCoords: list[str] = firstLine.split(" ")  # ["0,0,0", "1,1,2", ...]
-        allCoordsVals: list[tuple[float]] = [
+        allCoordsVals: list[tuple[float, ...]] = [
             tuple(map(float, coord.split(","))) for coord in allCoords
         ]
-        dimension: int = len(allCoordsVals[0])
+        dimension: int = len(allCoordsVals[0]) # Deduce dimension from data
 
         xVals: list[float] = [coord[0] for coord in allCoordsVals]
         yVals: list[float] = [coord[1] for coord in allCoordsVals]
