@@ -64,7 +64,9 @@ def anim3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("relativePath", type=str, help="The relative path of the results")
+    parser.add_argument(
+        "relativePath", type=str, help="The relative path of the results"
+    )
     args = parser.parse_args()
     currDir: str = os.path.dirname(os.path.abspath(__file__))
 
@@ -74,7 +76,7 @@ if __name__ == "__main__":
         allCoordsVals: list[tuple[float, ...]] = [
             tuple(map(float, coord.split(","))) for coord in allCoords
         ]
-        dimension: int = len(allCoordsVals[0]) # Deduce dimension from data
+        dimension: int = len(allCoordsVals[0])  # Deduce dimension from data
 
         xVals: list[float] = [coord[0] for coord in allCoordsVals]
         yVals: list[float] = [coord[1] for coord in allCoordsVals]

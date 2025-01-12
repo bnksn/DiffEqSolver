@@ -11,7 +11,6 @@
 4. Run "cmake --build ./build"
 
 ## To Do
-- Support user input
 - Remove headers and use modules
 - Tests
 
