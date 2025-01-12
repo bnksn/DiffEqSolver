@@ -9,7 +9,7 @@
 3. **Run the binary** `./build/DiffEqSolver ../config.txt`.
 
    - `../config.txt` is the path of the config file relative to the binary.
-   - There will be a console message if there is any numerical unstabilitiy.
+   - There will be a console message if there is any numerical instabilitiy.
 
 5. **Run Plot.py** `python3 ./src/Plot/Plot.py ../../build/data.txt`.
 
@@ -25,7 +25,7 @@
 - The solver supports ODEs with either 2 or 3 variables.
 - The solver will use the relevant config items depending on the ODE selected.
 - Specify the ODE by changing the **solver** setting.
-- Be sure to change the **dimension** setting accordingly
+- Be sure to change the **dimension** setting accordingly.
 
 | Setting | Description | Possible Values
 |---|---|---|

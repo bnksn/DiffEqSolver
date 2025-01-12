@@ -21,7 +21,7 @@ class Solver2D : public Solver {
     void enforceBoundaryCondition(std::vector<double>& newPoints,
                                   const std::vector<double>& prevPoints) const;
 
-    void warnNumericalUnstability() const noexcept;
+    void warnNumericalInstability() const noexcept;
 
    public:
     Solver2D(const double xFinal, const int xNumSteps, const double yFinal,

@@ -44,6 +44,6 @@ void Solver2D::enforceBoundaryCondition(
     }
 }
 
-void Solver2D::warnNumericalUnstability() const noexcept {
+void Solver2D::warnNumericalInstability() const noexcept {
     std::cout << "Warning. Numerical instability.\n";
 }
