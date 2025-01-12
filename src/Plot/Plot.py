@@ -36,7 +36,7 @@ def plot3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
     plt.show()
 
 
-def anim3d(xVals: list[float], yVals: list[float], zVals: list[float]):
+def anim3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
     xValsUnique: np.ndarray = np.unique(xVals)
     zVals: np.ndarray = np.array(zVals)
 
@@ -49,7 +49,7 @@ def anim3d(xVals: list[float], yVals: list[float], zVals: list[float]):
     xCount: int = len(xValsUnique)
     (line,) = ax.plot(xValsUnique, zVals[:xCount])
 
-    def animate(i):
+    def animate(i: int) -> tuple[plt.Line2D]:
         zIndexSlice: slice = slice(i * xCount, i * xCount + xCount)
         line.set_data(xValsUnique, zVals[zIndexSlice])
 
@@ -70,7 +70,7 @@ if __name__ == "__main__":
         allCoordsVals: list[tuple[float]] = [
             tuple(map(float, coord.split(","))) for coord in allCoords
         ]
-        dimension: int = len(allCoordsVals[0])  # Deduce dimension
+        dimension: int = len(allCoordsVals[0])
 
         xVals: list[float] = [coord[0] for coord in allCoordsVals]
         yVals: list[float] = [coord[1] for coord in allCoordsVals]
