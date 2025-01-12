@@ -14,7 +14,7 @@ enum class UserChoice { Polynomial, Trig, Heat, Advection, Wave };
 std::unique_ptr<Solver> getSolver(const UserChoice choice,
                                   const TrigFunc trigFunc,
                                   const BoundaryCondition boundaryCondition,
-                                  double xFinal, const int xNumSteps,
+                                  const double xFinal, const int xNumSteps,
                                   const double yInitial, const double yFinal,
                                   const int yNumSteps,
                                   const std::vector<double>& zInitial) {
@@ -69,11 +69,14 @@ int main() {
     const auto& results = solver->solve();
 
     const auto resultWriter = ResultWriter(results, resultPath);
-    if (dimension == 2) {
-        resultWriter.write2d(xNumSteps, xFinal);
-    } else if (dimension == 3) {
-        resultWriter.write3d(xNumSteps, xFinal, yNumSteps, yFinal);
-    } else {
-        throw std::invalid_argument("Dimension not valid");
+    switch (dimension) {
+        case (2):
+            resultWriter.write2d(xNumSteps, xFinal);
+            break;
+        case (3):
+            resultWriter.write3d(xNumSteps, xFinal, yNumSteps, yFinal);
+            break;
+        default:
+            throw std::invalid_argument("Dimension not valid");
     }
 }
