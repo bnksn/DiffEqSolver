@@ -4,6 +4,9 @@
 
 class Solver1D : public Solver {
    protected:
+    double xFinal;
+    int xNumSteps;
+    double dx;
     double yInitial;
     std::vector<double> coeffs;
 

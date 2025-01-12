@@ -7,7 +7,10 @@ Solver2D::Solver2D(const double xFinal, const int xNumSteps,
                    const double yFinal, const int yNumSteps,
                    const std::vector<double>& zInitial,
                    const BoundaryCondition boundaryCondition) noexcept
-    : Solver(xFinal, xNumSteps) {
+    : Solver() {
+    this->xFinal = xFinal;
+    this->xNumSteps = xNumSteps;
+    this->dx = xFinal / xNumSteps;
     this->yFinal = yFinal;
     this->yNumSteps = yNumSteps;
     this->dy = yFinal / yNumSteps;

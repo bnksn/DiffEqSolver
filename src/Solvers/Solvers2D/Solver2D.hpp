@@ -5,6 +5,9 @@
 
 class Solver2D : public Solver {
    protected:
+    double xFinal;
+    int xNumSteps;
+    double dx;
     double yFinal;
     int yNumSteps;
     double dy;
