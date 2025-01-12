@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Math/BoundaryCondition.hpp"
+#include "../../Input/UserInputs.hpp"
 #include "../Solver.hpp"
 
 class Solver2D : public Solver {

@@ -5,7 +5,7 @@
 #include <iostream>
 
 ResultWriter::ResultWriter(const std::vector<double>& results,
-                           const std::string& resultsPath) noexcept {
+                           const std::filesystem::path& resultsPath) noexcept {
     this->results = results;
     this->resultsPath = resultsPath;
 }
