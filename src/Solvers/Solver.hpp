@@ -7,5 +7,6 @@ class Solver {
     Solver() noexcept;
 
    public:
+    virtual ~Solver() noexcept;
     [[nodiscard]] std::vector<double> virtual solve() const = 0;
 };

@@ -1,0 +1,9 @@
+{
+  "name": "diffeqsolver",
+  "version-string": "0.0.0",
+  "dependencies": [
+      "gtest"
+  
+  ],
+  "builtin-baseline": "d4f3e122069912636c123b7ece673f6e01513cea"
+}

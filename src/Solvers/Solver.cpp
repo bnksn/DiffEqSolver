@@ -1,3 +1,4 @@
 #include "Solver.hpp"
 
-Solver::Solver() noexcept {}
+Solver::Solver() noexcept = default;
+Solver::~Solver() noexcept = default;
