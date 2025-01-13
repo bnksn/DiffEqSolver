@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
     const auto configPath = binaryDir / configRelativeToBinary;
     const auto cfg = ConfigReader().parseConfig(configPath);
 
-    const auto& results = getSolver(cfg)->solve();
+    const auto results = getSolver(cfg)->solve();
 
     const auto outputPath = binaryDir / cfg.resultPath;
     const auto resultWriter = ResultWriter(results, outputPath);
@@ -60,6 +60,6 @@ int main(int argc, char* argv[]) {
                                  cfg.yFinal);
             break;
         default:
-            throw std::invalid_argument("Dimension not valid");
+            throw std::invalid_argument("Invalid dimension");
     }
 }

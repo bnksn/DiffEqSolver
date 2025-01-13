@@ -13,7 +13,7 @@ class ConfigReader final {
     template <typename T>
     [[nodiscard]]
     std::vector<T> stringToVec(const std::string& str) const
-        requires std::integral<T> || std::floating_point<T>;
+        requires std::floating_point<T>;
 
     [[nodiscard]]
     SolverChoice solverChoiceToEnum(const std::string_view solverChoice) const;
