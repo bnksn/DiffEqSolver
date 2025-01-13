@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(DiffEqSolver)
 
+find_package(GTest CONFIG REQUIRED)
+
 add_executable(DiffEqSolver 
   ../src/Main.cpp
   ../src/Solvers/Solver.cpp
@@ -16,6 +18,15 @@ add_executable(DiffEqSolver
   ../src/Solvers/Solvers2D/SolverAdvection.cpp
   ../src/Solvers/Solvers2D/SolverWave.cpp
 )
+
+add_executable(DiffEqSolverTests 
+  ../tests/Main.cpp
+  ../tests/ConfigReaderTest.cpp
+  ../tests/ResultWriterTest.cpp
+  ../tests/SolverTest.cpp
+)
+
+target_link_libraries(DiffEqSolverTests PRIVATE GTest::gtest)
 
 if (MSVC)
     add_compile_options(/W4 /WX)
