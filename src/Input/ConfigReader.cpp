@@ -30,7 +30,7 @@ std::unordered_map<std::string, std::string> ConfigReader::createConfigMap(
 template <typename T>
 [[nodiscard]]
 std::vector<T> ConfigReader::stringToVec(const std::string& str) const
-    requires std::integral<T> || std::floating_point<T>
+    requires std::floating_point<T>
 {
     auto result = std::vector<T>();
     auto iss = std::istringstream(str);
@@ -109,7 +109,7 @@ Config ConfigReader::parseConfig(
     const std::filesystem::path& configPath) const {
     const auto config = createConfigMap(configPath);
 
-    const auto resultPath = config.at("resultPath");
+    const auto& resultPath = config.at("resultPath");
     const auto dimension = dimensionToEnum(config.at("dimension"));
     const auto solverChoice = solverChoiceToEnum(config.at("solver"));
     const auto trigFunc = trigFuncToEnum(config.at("trigFunc"));
