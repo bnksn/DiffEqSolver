@@ -9,8 +9,10 @@
 #include "Solvers/Solvers2D/SolverHeat.hpp"
 #include "Solvers/Solvers2D/SolverWave.hpp"
 
+template <typename NumT>
+    requires std::floating_point<NumT>
 [[nodiscard]]
-std::unique_ptr<Solver> getSolver(const Config cfg) {
+std::unique_ptr<Solver> getSolver(const Config<NumT>& cfg) {
     switch (cfg.solver) {
         case (SolverChoice::Polynomial):
             return std::make_unique<SolverPolynomial>(
@@ -45,7 +47,7 @@ int main(int argc, char* argv[]) {
     const auto configRelativeToBinary = argv[1];
     const auto binaryDir = std::filesystem::canonical(argv[0]).parent_path();
     const auto configPath = binaryDir / configRelativeToBinary;
-    const auto cfg = ConfigReader().parseConfig(configPath);
+    const auto cfg = ConfigReader<double>().parseConfig(configPath);
 
     const auto results = getSolver(cfg)->solve();
 
