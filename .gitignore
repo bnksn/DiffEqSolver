@@ -1,6 +1,9 @@
 build/*
 data.txt
+
+# Test output
 Testing/*
+tests/Output/TestOutput/*
 
 # VS Code
 c_cpp_properties.json

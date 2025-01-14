@@ -20,8 +20,8 @@
 ## How to build
 1. **Clone the repository** `git clone https://github.com/bnksn/DiffEqSolver.git`.
 2. **Navigate to the root directory** `cd DiffEqSolver`.
-3. **Configure CMake** `cmake -B ./build`.
-4. **Build** `cmake --build ./build path/to/vcpkg/scripts/buildsystems.vcpkg.cmake` 
+3. **Configure CMake** `cmake -B ./build ./build path/to/vcpkg/scripts/buildsystems.vcpkg.cmake`.
+4. **Build** `cmake --build ./build` 
 
 ## How to configure `config.txt`
 - The solver supports ODEs with either 2 or 3 variables.
