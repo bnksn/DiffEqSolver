@@ -1,5 +1,5 @@
 {
-  "name": "DiffEqSolver",
+  "name": "diffeqsolver",
   "version-string": "0.0.0",
   "dependencies": [
       "gtest"

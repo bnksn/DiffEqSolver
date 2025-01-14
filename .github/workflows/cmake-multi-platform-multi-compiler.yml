@@ -32,6 +32,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Run vcpkg
+      uses: lukka/run-vcpkg@v11
+      with:
+        vcpkgArguments: 'gtest'
+        vcpkgDirectory: '${{ github.workspace }}/vcpkg'
+
     - name: Configure CMake
       run: cmake 
         -S ${{github.workspace}}

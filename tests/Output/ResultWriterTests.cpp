@@ -1,6 +1,13 @@
 #include "../../src/Output/ResultWriter.hpp"
 #include "gtest/gtest.h"
 
+class ResultWriterTests : public ::testing::Test {
+   protected:
+    void SetUp() override {
+        std::filesystem::create_directory("tests/Output/TestOutput");
+    }
+};
+
 std::string readFile(const std::string& path) {
     auto file = std::ifstream(path);
     if (!file.is_open()) {
@@ -11,7 +18,7 @@ std::string readFile(const std::string& path) {
                        std::istreambuf_iterator<char>());
 }
 
-TEST(ResultWriterTests, Write2d) {
+TEST_F(ResultWriterTests, Write2d) {
     const auto xNumSteps = 5;
     const auto xFinal = 1;
     const auto fakeResults = std::vector{1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
@@ -28,7 +35,7 @@ TEST(ResultWriterTests, Write2d) {
     ASSERT_EQ(expectedData, data);
 }
 
-TEST(ResultWriterTests, Write3d) {
+TEST_F(ResultWriterTests, Write3d) {
     const auto xNumSteps = 5;
     const auto xFinal = 1;
     const auto yNumSteps = 2;
