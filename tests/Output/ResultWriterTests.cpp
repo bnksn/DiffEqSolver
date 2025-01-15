@@ -14,10 +14,10 @@ class ResultWriterTests : public ::testing::Test {
     }
 
     [[nodiscard]]
-    std::string readFile(const std::string& path) const {
+    std::string readFile(const std::filesystem::path& path) const {
         auto file = std::ifstream(path);
         if (!file.is_open()) {
-            throw std::runtime_error("Failed to open file: " + path);
+            throw std::runtime_error("Failed to open file: " + path.string());
         }
 
         return std::string(std::istreambuf_iterator<char>(file),
