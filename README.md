@@ -23,7 +23,7 @@ Includes a Python script for result visualisation.
    - `../config.txt` is the path of the config file relative to the binary.
    - There will be a console message if there is any numerical instabilitiy.
 
-5. **Run Plot.py** `python3 ./src/Plot/Plot.py ../../build/data.txt`.
+5. **Run Main.py** `python3 ./src/Plot/Main.py ../../build/data.txt`.
 
    - `../../build/data.txt` is the path of the result file relative to the python script. 
 

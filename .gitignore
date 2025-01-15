@@ -1,8 +1,7 @@
 build/*
-data.txt
+*.pyc
 
 # Test output
-Testing/*
 tests/Output/TestOutput/*
 
 # VS Code
