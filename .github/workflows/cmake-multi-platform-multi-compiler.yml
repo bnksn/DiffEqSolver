@@ -35,14 +35,14 @@ jobs:
     - name: Run vcpkg
       uses: lukka/run-vcpkg@v11
       with:
-        vcpkgArguments: 'gtest'
-        vcpkgDirectory: '${{ github.workspace }}/vcpkg'
+        vcpkgDirectory: '${{github.workspace}}/vcpkg'
 
     - name: Configure CMake
       run: cmake 
         -S ${{github.workspace}}
         -B ${{github.workspace}}/build
         -DCMAKE_CXX_COMPILER=${{matrix.cpp_compiler}}
+        -DCMAKE_TOOLCHAIN_FILE="vcpkg/scripts/buildsystems/vcpkg.cmake"
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build
