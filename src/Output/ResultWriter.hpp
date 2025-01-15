@@ -26,7 +26,7 @@ class ResultWriter final {
         auto zIndex = 0;
         for (auto xCurrStep = 0; xCurrStep < xNumSteps; ++xCurrStep) {
             const auto x = xStepSize * xCurrStep;
-            const auto& y = this->results[zIndex++];
+            const auto y = this->results[zIndex++];
             file << x << ',' << y << ' ';
         }
 
@@ -45,7 +45,7 @@ class ResultWriter final {
             for (auto xCurrStep = 0; xCurrStep <= xNumSteps; ++xCurrStep) {
                 const auto x = xStepSize * xCurrStep;
                 const auto y = yStepSize * yCurrStep;
-                const auto& z = this->results[zIndex++];
+                const auto z = this->results[zIndex++];
                 file << x << ',' << y << ',' << z << ' ';
             }
         }
