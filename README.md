@@ -66,5 +66,4 @@ Includes a Python script for result visualisation.
 - Use modules
 
 ## Gallery
-![me](https://github.com/bnksn/DiffEqSolver/blob/main/gallery/wavePlot.png)
-![me](https://github.com/bnksn/DiffEqSolver/blob/main/gallery/waveAnim.gif)
+<img src="https://github.com/bnksn/DiffEqSolver/blob/main/gallery/wavePlot.png" width="500" height="400"> <img src="https://github.com/bnksn/DiffEqSolver/blob/main/gallery/waveAnim.gif" width="500" height="400">
