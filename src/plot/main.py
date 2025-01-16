@@ -8,7 +8,7 @@ if __name__ == "__main__":
         "relativePath", type=str, help="The relative path of the results"
     )
     args = parser.parse_args()
-    currDir: str = os.path.dirname(os.path.abspath(__file__))
+    currDir = os.path.dirname(os.path.abspath(__file__))
 
     with open(currDir + "/" + args.relativePath, "r") as dataFile:
         firstLine: str = dataFile.readline().strip()
@@ -16,7 +16,7 @@ if __name__ == "__main__":
         allCoordsVals: list[tuple[float, ...]] = [
             tuple(map(float, coord.split(","))) for coord in allCoords
         ]
-        dimension: int = len(allCoordsVals[0])  # Deduce dimension from data
+        dimension = len(allCoordsVals[0])  # Deduce dimension from data
 
         xVals: list[float] = [coord[0] for coord in allCoordsVals]
         yVals: list[float] = [coord[1] for coord in allCoordsVals]

@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt  # type: ignore
 from matplotlib.animation import FuncAnimation  # type: ignore
 import numpy as np
-import numpy.typing as npt
 
 
 def plot2d(xVals: list[float], yVals: list[float]) -> None:
@@ -13,8 +12,8 @@ def plot2d(xVals: list[float], yVals: list[float]) -> None:
 
 
 def plot3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
-    xValsUnique: npt.NDArray[np.float64] = np.unique(xVals)
-    yValsUnique: npt.NDArray[np.float64] = np.unique(yVals)
+    xValsUnique = np.unique(xVals)
+    yValsUnique = np.unique(yVals)
 
     X, Y = np.meshgrid(xValsUnique, yValsUnique)
 
@@ -23,8 +22,8 @@ def plot3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
     for i in range(len(zVals)):
         Z[i // xCount][i % xCount] = zVals[i]
 
-    fig: plt.Figure = plt.figure()
-    ax: plt.Axes = fig.add_subplot(111, projection="3d")
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection="3d")
 
     ax.plot_surface(X, Y, Z, cmap="inferno")
 
@@ -37,8 +36,8 @@ def plot3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
 
 
 def anim3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
-    xValsUnique: np.ndarray = np.unique(xVals)
-    zValsNumpy: np.ndarray = np.array(zVals)
+    xValsUnique = np.unique(xVals)
+    zValsNumpy = np.array(zVals)
 
     fig, ax = plt.subplots()
     ax.set_xlabel("X")
@@ -46,11 +45,11 @@ def anim3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
     ax.set_title("X vs Z over time (Y)")
     ax.set_ylim(min(zValsNumpy), max(zValsNumpy))
 
-    xCount: int = len(xValsUnique)
+    xCount = len(xValsUnique)
     (line,) = ax.plot(xValsUnique, zValsNumpy[:xCount])
 
     def animate(i: int) -> tuple[plt.Line2D]:
-        zIndexSlice: slice = slice(i * xCount, i * xCount + xCount)
+        zIndexSlice = slice(i * xCount, i * xCount + xCount)
         line.set_data(xValsUnique, zValsNumpy[zIndexSlice])
 
         return (line,)

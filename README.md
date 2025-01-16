@@ -60,7 +60,7 @@ Includes a Python script for result visualisation.
 
 ## How to test
 1. **Build** (see other section).
-2. **Run CTest** `ctest --test-dir ./build --output-on-failure -C Debug`
+2. **Run CTest** `ctest --test-dir ./build --output-on-failure`
 
 ## To Do
 - Use modules

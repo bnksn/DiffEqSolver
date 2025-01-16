@@ -11,28 +11,28 @@ find_package(GTest REQUIRED)
 
 add_library(DiffEqSolverLib
     STATIC 
-    ../src/solvers/solver.cpp
-    ../src/solvers/solvers1D/solver1D.cpp 
-    ../src/solvers/solvers1D/solverPolynomial.cpp 
-    ../src/solvers/solvers1D/solverTrig.cpp 
-    ../src/solvers/solvers2D/solver2D.cpp 
-    ../src/solvers/solvers2D/solverHeat.cpp 
-    ../src/solvers/solvers2D/solverAdvection.cpp 
-    ../src/solvers/solvers2D/solverWave.cpp 
+    src/solvers/solver.cpp
+    src/solvers/solvers1D/solver1D.cpp 
+    src/solvers/solvers1D/solverPolynomial.cpp 
+    src/solvers/solvers1D/solverTrig.cpp 
+    src/solvers/solvers2D/solver2D.cpp 
+    src/solvers/solvers2D/solverHeat.cpp 
+    src/solvers/solvers2D/solverAdvection.cpp 
+    src/solvers/solvers2D/solverWave.cpp 
 )
 
 add_executable(DiffEqSolver
-    ../src/main.cpp 
+    src/main.cpp 
 )
 
 target_link_libraries(DiffEqSolver PRIVATE DiffEqSolverLib) 
 
 add_executable(DiffEqSolverTests 
-    ../tests/main.cpp 
-    ../tests/input/configReaderTests.cpp 
-    ../tests/output/resultWriterTests.cpp 
-    ../tests/solvers/solvers1D/solverTrigTests.cpp 
-    ../tests/solvers/solvers2D/solverHeatTests.cpp 
+    tests/main.cpp 
+    tests/input/configReaderTests.cpp 
+    tests/output/resultWriterTests.cpp 
+    tests/solvers/solvers1D/solverTrigTests.cpp 
+    tests/solvers/solvers2D/solverHeatTests.cpp 
 )
 
 target_link_libraries(DiffEqSolverTests PRIVATE GTest::gtest DiffEqSolverLib) 
