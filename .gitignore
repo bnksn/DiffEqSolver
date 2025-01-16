@@ -2,7 +2,7 @@ build/*
 *.pyc
 
 # Test output
-tests/Output/TestOutput/*
+tests/output/testOutput/*
 
 # VS Code
 c_cpp_properties.json
