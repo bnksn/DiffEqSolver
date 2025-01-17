@@ -6,9 +6,7 @@
 SolverTrig::SolverTrig(const double xFinal, const int xNumSteps,
                        const double yInitial, const std::vector<double>& coeffs,
                        const TrigFunc trigFunc) noexcept
-    : Solver1D(xFinal, xNumSteps, yInitial, coeffs) {
-    this->trigFunc = trigFunc;
-}
+    : Solver1D(xFinal, xNumSteps, yInitial, coeffs), trigFunc(trigFunc) {}
 
 [[nodiscard]]
 double SolverTrig::evaluateTrig(const double input) const {

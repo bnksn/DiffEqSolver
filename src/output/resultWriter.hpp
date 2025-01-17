@@ -13,10 +13,8 @@ class ResultWriter final {
 
    public:
     ResultWriter(const std::vector<CoordT>& results,
-                 const std::filesystem::path& resultsPath) noexcept {
-        this->results = results;
-        this->resultsPath = resultsPath;
-    }
+                 const std::filesystem::path& resultsPath) noexcept
+        : results(results), resultsPath(std::move(resultsPath)) {}
 
     void write2d(const int xNumSteps, const CoordT xFinal) const {
         const auto xStepSize = xFinal / xNumSteps;

@@ -10,7 +10,7 @@ Includes a Python script for result visualisation.
 
 ## Requirements
 - CMake
-- A C++ compiler with C++23 support
+- Clang
 - Python 3 (including Matplotlib and Numpy)
 - Google Test
 - vcpkg

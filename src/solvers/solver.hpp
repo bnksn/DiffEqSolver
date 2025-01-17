@@ -4,6 +4,12 @@
 
 class Solver {
    public:
-    virtual ~Solver() noexcept;
+    Solver() = default;
+    virtual ~Solver() noexcept = default;
+    Solver(const Solver&) = default;
+    Solver& operator=(const Solver&) = default;
+    Solver(Solver&&) = default;
+    Solver& operator=(Solver&&) = default;
+
     [[nodiscard]] std::vector<double> virtual solve() const = 0;
 };

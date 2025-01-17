@@ -7,16 +7,15 @@ Solver2D::Solver2D(const double xFinal, const int xNumSteps,
                    const double yFinal, const int yNumSteps,
                    const std::vector<double>& zInitial,
                    const BoundaryCondition boundaryCondition) noexcept
-    : Solver() {
-    this->xFinal = xFinal;
-    this->xNumSteps = xNumSteps;
-    this->dx = xFinal / xNumSteps;
-    this->yFinal = yFinal;
-    this->yNumSteps = yNumSteps;
-    this->dy = yFinal / yNumSteps;
-    this->zInitial = zInitial;
-    this->boundaryCondition = boundaryCondition;
-}
+    : Solver(),
+      xFinal(xFinal),
+      xNumSteps(xNumSteps),
+      dx(xFinal / xNumSteps),
+      yFinal(yFinal),
+      yNumSteps(yNumSteps),
+      dy(yFinal / yNumSteps),
+      zInitial(zInitial),
+      boundaryCondition(boundaryCondition) {}
 
 [[nodiscard]]
 std::vector<double> Solver2D::flattenOutput(

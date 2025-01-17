@@ -8,8 +8,8 @@ SolverAdvection::SolverAdvection(
     const int yNumSteps, const std::vector<double>& zInitial,
     const double velocity, const BoundaryCondition boundaryCondition) noexcept
     : Solver2D(xFinal, xNumSteps, yFinal, yNumSteps, zInitial,
-               boundaryCondition) {
-    this->multiplier = velocity * this->dy / this->dx;
+               boundaryCondition),
+      multiplier(velocity * this->dy / this->dx) {
     if (this->multiplier > 1) {
         warnNumericalInstability();
     }

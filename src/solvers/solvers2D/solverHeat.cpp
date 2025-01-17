@@ -9,8 +9,8 @@ SolverHeat::SolverHeat(const double xFinal, const int xNumSteps,
                        const double thermalDiffusivity,
                        const BoundaryCondition boundaryCondition) noexcept
     : Solver2D(xFinal, xNumSteps, yFinal, yNumSteps, zInitial,
-               boundaryCondition) {
-    this->multiplier = thermalDiffusivity * this->dy / (this->dx * this->dx);
+               boundaryCondition),
+      multiplier(thermalDiffusivity * this->dy / (this->dx * this->dx)) {
     if (this->multiplier > 0.5) {
         warnNumericalInstability();
     }

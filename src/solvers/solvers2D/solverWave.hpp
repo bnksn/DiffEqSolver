@@ -13,5 +13,5 @@ class SolverWave final : public Solver2D {
                const BoundaryCondition boundaryCondition) noexcept;
 
     [[nodiscard]]
-    std::vector<double> solve() const override final;
+    std::vector<double> solve() const final;
 };

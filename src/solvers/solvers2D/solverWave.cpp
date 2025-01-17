@@ -9,9 +9,8 @@ SolverWave::SolverWave(const double xFinal, const int xNumSteps,
                        const double waveSpeed,
                        const BoundaryCondition boundaryCondition) noexcept
     : Solver2D(xFinal, xNumSteps, yFinal, yNumSteps, zInitial,
-               boundaryCondition) {
-    this->multiplier =
-        std::pow(waveSpeed * this->dy / (this->dx * this->dx), 2);
+               boundaryCondition),
+      multiplier(std::pow(waveSpeed * this->dy / (this->dx * this->dx), 2)) {
     if (this->multiplier > 1) {
         warnNumericalInstability();
     }

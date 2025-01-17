@@ -20,8 +20,8 @@ class ResultWriterTests : public ::testing::Test {
             throw std::runtime_error("Failed to open file: " + path.string());
         }
 
-        return std::string(std::istreambuf_iterator<char>(file),
-                           std::istreambuf_iterator<char>());
+        return {std::istreambuf_iterator<char>(file),
+                std::istreambuf_iterator<char>()};
     }
 };
 

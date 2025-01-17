@@ -16,5 +16,5 @@ class SolverTrig final : public Solver1D {
                const TrigFunc trigFunc) noexcept;
 
     [[nodiscard]]
-    std::vector<double> solve() const override final;
+    std::vector<double> solve() const final;
 };

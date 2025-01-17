@@ -13,5 +13,5 @@ class SolverPolynomial final : public Solver1D {
                      const std::vector<double>& coeffs) noexcept;
 
     [[nodiscard]]
-    std::vector<double> solve() const override final;
+    std::vector<double> solve() const final;
 };

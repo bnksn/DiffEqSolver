@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include <span>
 
 #include "input/configReader.hpp"
 #include "output/resultWriter.hpp"
@@ -43,29 +44,39 @@ std::vector<double> getResults(const Config<NumT>& cfg) {
 }
 
 int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        std::cerr << "Usage: " << argv[0] << " <configRelativeToBinary>\n";
+    try {
+        const auto args = std::span(argv, argc);
+
+        if (argc != 2) {
+            std::cerr << "Usage: " << args[0] << " <configRelativeToBinary>\n";
+            return 1;
+        }
+
+        const auto configRelativeToBinary = args[1];
+        const auto binaryDir =
+            std::filesystem::canonical(args[0]).parent_path();
+        const auto configPath = binaryDir / configRelativeToBinary;
+        const auto cfg = ConfigReader<double>().parseConfig(configPath);
+
+        const auto results = getResults(cfg);
+
+        const auto outputPath = binaryDir / cfg.resultPath;
+        const auto resultWriter = ResultWriter(results, outputPath);
+        switch (cfg.dimension) {
+            case (Dimension::Two):
+                resultWriter.write2d(cfg.xNumSteps, cfg.xFinal);
+                break;
+            case (Dimension::Three):
+                resultWriter.write3d(cfg.xNumSteps, cfg.xFinal, cfg.yNumSteps,
+                                     cfg.yFinal);
+                break;
+            default:
+                throw std::invalid_argument("Invalid dimension");
+        }
+
+    } catch (const std::exception& ex) {
+        std::cerr << "Error: " << ex.what() << '\n';
         return 1;
     }
-
-    const auto configRelativeToBinary = argv[1];
-    const auto binaryDir = std::filesystem::canonical(argv[0]).parent_path();
-    const auto configPath = binaryDir / configRelativeToBinary;
-    const auto cfg = ConfigReader<double>().parseConfig(configPath);
-
-    const auto results = getResults(cfg);
-
-    const auto outputPath = binaryDir / cfg.resultPath;
-    const auto resultWriter = ResultWriter(results, outputPath);
-    switch (cfg.dimension) {
-        case (Dimension::Two):
-            resultWriter.write2d(cfg.xNumSteps, cfg.xFinal);
-            break;
-        case (Dimension::Three):
-            resultWriter.write3d(cfg.xNumSteps, cfg.xFinal, cfg.yNumSteps,
-                                 cfg.yFinal);
-            break;
-        default:
-            throw std::invalid_argument("Invalid dimension");
-    }
+    return 0;
 }
