@@ -46,7 +46,7 @@ add_test(NAME DiffEqSolverTests
          COMMAND $<TARGET_FILE:DiffEqSolverTests>)
 
 if (MSVC)
-    add_compile_options(/W4 /WX)
+    add_compile_options(/W4 /WX /fsanitize=address)
 else()
-    add_compile_options(-Wall -Wextra -pedantic -Werror -Wconversion -O3)
+    add_compile_options(-Wall -Wextra -pedantic -Werror -Wconversion -O3 -fsanitize=address,undefined)
 endif()
