@@ -1,4 +1,4 @@
-name: CMake multiple operating systems / compilers
+name: Build and test
 
 on: push
 
