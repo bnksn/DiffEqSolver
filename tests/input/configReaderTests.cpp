@@ -25,9 +25,8 @@ TEST_F(ConfigReaderTests, ReadConfig) {
     const auto xFinalExpected = 1.0;
     const auto xNumStepsExpected = 20;
     const auto yInitialExpected = 2.0;
-    const auto zInitialExpected =
-        std::vector{1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.5, 1.6, 1.6, 1.6, 1.6,
-                    1.6, 1.6, 1.6, 1.5, 1.5, 1.4, 1.3, 1.2, 1.1, 1.0};
+    const auto zInitialExpected = std::vector{1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.5, 1.6, 1.6, 1.6, 1.6,
+                                              1.6, 1.6, 1.6, 1.5, 1.5, 1.4, 1.3, 1.2, 1.1, 1.0};
     const auto yFinalExpected = 2.0;
     const auto yNumStepsExpected = 200;
     const auto polynomialCoeffsExpected = std::vector{1.0, 1.0, 2.0};

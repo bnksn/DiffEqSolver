@@ -24,7 +24,7 @@ class Solver2D : public Solver {
     void warnNumericalInstability() const noexcept;
 
    public:
-    Solver2D(const double xFinal, const int xNumSteps, const double yFinal,
-             const int yNumSteps, const std::vector<double>& zInitial,
+    Solver2D(const double xFinal, const int xNumSteps, const double yFinal, const int yNumSteps,
+             const std::vector<double>& zInitial,
              const BoundaryCondition boundaryCondition) noexcept;
 };

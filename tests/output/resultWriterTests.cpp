@@ -20,8 +20,7 @@ class ResultWriterTests : public ::testing::Test {
             throw std::runtime_error("Failed to open file: " + path.string());
         }
 
-        return {std::istreambuf_iterator<char>(file),
-                std::istreambuf_iterator<char>()};
+        return {std::istreambuf_iterator<char>(file), std::istreambuf_iterator<char>()};
     }
 };
 
@@ -36,8 +35,7 @@ TEST_F(ResultWriterTests, Write2d) {
     resultWriter.write2d(xNumSteps, xFinal);
 
     const auto data = this->readFile(outputPath);
-    const auto expectedData =
-        readFile(this->testsResource / "data2dExpected.txt");
+    const auto expectedData = readFile(this->testsResource / "data2dExpected.txt");
 
     ASSERT_EQ(expectedData, data);
 }
@@ -47,9 +45,8 @@ TEST_F(ResultWriterTests, Write3d) {
     const auto xFinal = 1;
     const auto yNumSteps = 2;
     const auto yFinal = 1;
-    const auto fakeResults =
-        std::vector{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 1.0, 2.0, 3.0,
-                    4.0, 5.0, 6.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
+    const auto fakeResults = std::vector{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 1.0, 2.0, 3.0,
+                                         4.0, 5.0, 6.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
 
     const auto outputPath = this->testsOutput / "data3d.txt";
 
@@ -57,8 +54,7 @@ TEST_F(ResultWriterTests, Write3d) {
     resultWriter.write3d(xNumSteps, xFinal, yNumSteps, yFinal);
 
     const auto data = this->readFile(outputPath);
-    const auto expectedData =
-        readFile(this->testsResource / "data3dExpected.txt");
+    const auto expectedData = readFile(this->testsResource / "data3dExpected.txt");
 
     ASSERT_EQ(expectedData, data);
 }

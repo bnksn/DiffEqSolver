@@ -53,8 +53,7 @@ class ConfigReader final {
         auto iss = std::istringstream(str);
         auto val = NumT();
         if (!(iss >> val)) {
-            throw std::runtime_error(
-                "Failed cast from string to num type. Input: " + str);
+            throw std::runtime_error("Failed cast from string to num type. Input: " + str);
         }
 
         return val;
@@ -106,8 +105,7 @@ class ConfigReader final {
     }
 
     [[nodiscard]]
-    BoundaryCondition boundaryConditionToEnum(
-        const std::string_view boundaryCondition) const {
+    BoundaryCondition boundaryConditionToEnum(const std::string_view boundaryCondition) const {
         if (boundaryCondition == "dirichlet") {
             return BoundaryCondition::Dirichlet;
         }
@@ -126,8 +124,7 @@ class ConfigReader final {
         const auto dimension = dimensionToEnum(config.at("dimension"));
         const auto solverChoice = solverChoiceToEnum(config.at("solver"));
         const auto trigFunc = trigFuncToEnum(config.at("trigFunc"));
-        const auto boundaryCondition =
-            boundaryConditionToEnum(config.at("boundaryCondition"));
+        const auto boundaryCondition = boundaryConditionToEnum(config.at("boundaryCondition"));
         const auto xFinal = stringToNum(config.at("xFinal"));
         const auto xNumSteps = std::stoi(config.at("xNumSteps"));
         const auto yInitial = stringToNum(config.at("yInitial"));
@@ -135,11 +132,9 @@ class ConfigReader final {
         const auto yFinal = stringToNum(config.at("yFinal"));
         const auto yNumSteps = std::stoi(config.at("yNumSteps"));
         const auto waveConstant = stringToNum(config.at("waveConstant"));
-        const auto advectionConstant =
-            std::stod(config.at("advectionConstant"));
+        const auto advectionConstant = std::stod(config.at("advectionConstant"));
         const auto heatConstant = stringToNum(config.at("heatConstant"));
-        const auto polynomialCoeffs =
-            stringToVec(config.at("polynomialCoeffs"));
+        const auto polynomialCoeffs = stringToVec(config.at("polynomialCoeffs"));
         const auto trigCoeffs = stringToVec(config.at("trigCoeffs"));
 
         return {resultPath,        dimension,    solverChoice,     trigFunc,

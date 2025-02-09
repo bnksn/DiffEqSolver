@@ -7,9 +7,8 @@ class SolverHeat final : public Solver2D {
     double multiplier;
 
    public:
-    SolverHeat(const double xFinal, const int xNumSteps, const double yFinal,
-               const int yNumSteps, const std::vector<double>& zInitial,
-               const double thermalDiffusivity,
+    SolverHeat(const double xFinal, const int xNumSteps, const double yFinal, const int yNumSteps,
+               const std::vector<double>& zInitial, const double thermalDiffusivity,
                const BoundaryCondition boundaryCondition) noexcept;
 
     [[nodiscard]]

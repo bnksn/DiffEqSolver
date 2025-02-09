@@ -3,9 +3,8 @@
 #include <cmath>
 #include <iostream>
 
-Solver2D::Solver2D(const double xFinal, const int xNumSteps,
-                   const double yFinal, const int yNumSteps,
-                   const std::vector<double>& zInitial,
+Solver2D::Solver2D(const double xFinal, const int xNumSteps, const double yFinal,
+                   const int yNumSteps, const std::vector<double>& zInitial,
                    const BoundaryCondition boundaryCondition) noexcept
     : Solver(),
       xFinal(xFinal),
@@ -29,9 +28,8 @@ std::vector<double> Solver2D::flattenOutput(
     return flatOutput;
 }
 
-void Solver2D::enforceBoundaryCondition(
-    std::vector<double>& newPoints,
-    const std::vector<double>& prevPoints) const {
+void Solver2D::enforceBoundaryCondition(std::vector<double>& newPoints,
+                                        const std::vector<double>& prevPoints) const {
     if (this->boundaryCondition == BoundaryCondition::Dirichlet) {
         newPoints.front() = prevPoints.front();
         newPoints.back() = prevPoints.back();

@@ -7,9 +7,8 @@ class SolverAdvection final : public Solver2D {
     double multiplier;
 
    public:
-    SolverAdvection(const double xFinal, const int xNumSteps,
-                    const double yFinal, const int yNumSteps,
-                    const std::vector<double>& zInitial, const double velocity,
+    SolverAdvection(const double xFinal, const int xNumSteps, const double yFinal,
+                    const int yNumSteps, const std::vector<double>& zInitial, const double velocity,
                     const BoundaryCondition boundaryCondition) noexcept;
 
     [[nodiscard]]

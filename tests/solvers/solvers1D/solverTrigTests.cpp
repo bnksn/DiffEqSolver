@@ -20,8 +20,7 @@ TEST(SolverTrigTests, CheckResults) {
     const auto coeffs = std::vector{1.0, 1.0};
     const auto trigFunc = TrigFunc::Cosine;
 
-    const auto trigSolver =
-        SolverTrig(xFinal, xNumSteps, yInitial, coeffs, trigFunc);
+    const auto trigSolver = SolverTrig(xFinal, xNumSteps, yInitial, coeffs, trigFunc);
     const auto results = trigSolver.solve();
 
     ASSERT_EQ(expectedResults.size(), results.size());

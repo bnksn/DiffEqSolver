@@ -3,9 +3,8 @@
 #include <cmath>
 #include <iostream>
 
-SolverTrig::SolverTrig(const double xFinal, const int xNumSteps,
-                       const double yInitial, const std::vector<double>& coeffs,
-                       const TrigFunc trigFunc) noexcept
+SolverTrig::SolverTrig(const double xFinal, const int xNumSteps, const double yInitial,
+                       const std::vector<double>& coeffs, const TrigFunc trigFunc) noexcept
     : Solver1D(xFinal, xNumSteps, yInitial, coeffs), trigFunc(trigFunc) {}
 
 [[nodiscard]]

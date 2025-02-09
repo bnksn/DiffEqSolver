@@ -8,8 +8,7 @@ class SolverPolynomial final : public Solver1D {
     double evaluatePolynomial(const double input) const noexcept;
 
    public:
-    SolverPolynomial(const double xFinal, const int xNumSteps,
-                     const double yInitial,
+    SolverPolynomial(const double xFinal, const int xNumSteps, const double yInitial,
                      const std::vector<double>& coeffs) noexcept;
 
     [[nodiscard]]

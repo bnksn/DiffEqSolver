@@ -2,8 +2,7 @@
 
 #include <cmath>
 
-SolverPolynomial::SolverPolynomial(const double xFinal, const int xNumSteps,
-                                   const double yInitial,
+SolverPolynomial::SolverPolynomial(const double xFinal, const int xNumSteps, const double yInitial,
                                    const std::vector<double>& coeffs) noexcept
     : Solver1D(xFinal, xNumSteps, yInitial, coeffs) {}
 

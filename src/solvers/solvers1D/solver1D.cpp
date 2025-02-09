@@ -2,8 +2,7 @@
 
 #include <cmath>
 
-Solver1D::Solver1D(const double xFinal, const int xNumSteps,
-                   const double yInitial,
+Solver1D::Solver1D(const double xFinal, const int xNumSteps, const double yInitial,
                    const std::vector<double>& coeffs) noexcept
     : Solver(),
       xFinal(xFinal),

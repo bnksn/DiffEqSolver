@@ -7,9 +7,8 @@ class SolverWave final : public Solver2D {
     double multiplier;
 
    public:
-    SolverWave(const double xFinal, const int xNumSteps, const double yFinal,
-               const int yNumSteps, const std::vector<double>& zInitial,
-               const double waveSpeed,
+    SolverWave(const double xFinal, const int xNumSteps, const double yFinal, const int yNumSteps,
+               const std::vector<double>& zInitial, const double waveSpeed,
                const BoundaryCondition boundaryCondition) noexcept;
 
     [[nodiscard]]
