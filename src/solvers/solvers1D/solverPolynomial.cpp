@@ -22,7 +22,7 @@ double SolverPolynomial::evaluatePolynomial(const double input) const noexcept {
 std::vector<double> SolverPolynomial::solve() const {
     auto yValues = std::vector{this->yInitial};
 
-    for (auto stepsTaken = 0u; stepsTaken < this->xNumSteps; ++stepsTaken) {
+    for (auto stepsTaken = 0; stepsTaken < this->xNumSteps; ++stepsTaken) {
         const auto xCurr = stepsTaken * this->dx;
         const auto yOld = yValues.back();
         const auto yNew = yOld + this->dx * evaluatePolynomial(xCurr);
