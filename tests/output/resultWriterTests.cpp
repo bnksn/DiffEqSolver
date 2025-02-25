@@ -35,7 +35,7 @@ TEST_F(ResultWriterTests, Write2d) {
     resultWriter.write2d(xNumSteps, xFinal);
 
     const auto data = this->readFile(outputPath);
-    const auto expectedData = readFile(this->testsResource / "data2dExpected.txt");
+    const auto expectedData = this->readFile(this->testsResource / "data2dExpected.txt");
 
     ASSERT_EQ(expectedData, data);
 }
@@ -54,7 +54,7 @@ TEST_F(ResultWriterTests, Write3d) {
     resultWriter.write3d(xNumSteps, xFinal, yNumSteps, yFinal);
 
     const auto data = this->readFile(outputPath);
-    const auto expectedData = readFile(this->testsResource / "data3dExpected.txt");
+    const auto expectedData = this->readFile(this->testsResource / "data3dExpected.txt");
 
     ASSERT_EQ(expectedData, data);
 }
