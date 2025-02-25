@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <print>
 
 Solver2D::Solver2D(const double xFinal, const int xNumSteps, const double yFinal,
                    const int yNumSteps, const std::vector<double>& zInitial,
@@ -42,5 +43,5 @@ void Solver2D::enforceBoundaryCondition(std::vector<double>& newPoints,
 }
 
 void Solver2D::warnNumericalInstability() const noexcept {
-    std::cout << "Warning. Numerical instability.\n";
+    std::println("Warning. Numerical instability.");
 }
