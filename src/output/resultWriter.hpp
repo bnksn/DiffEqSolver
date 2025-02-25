@@ -21,10 +21,10 @@ class ResultWriter final {
 
         auto file = std::ofstream(this->resultsPath);
 
-        auto zIndex = 0;
+        auto yIndex = 0;
         for (auto xCurrStep = 0; xCurrStep < xNumSteps; ++xCurrStep) {
             const auto x = xStepSize * xCurrStep;
-            const auto y = this->results[zIndex++];
+            const auto y = this->results[yIndex++];
             file << x << ',' << y << ' ';
         }
 
