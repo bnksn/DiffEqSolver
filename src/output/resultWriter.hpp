@@ -4,8 +4,9 @@
 #include <fstream>
 #include <vector>
 
-template <typename CoordT>
-    requires std::floating_point<CoordT>
+#include "../concepts.hpp"
+
+template <Numeric CoordT>
 class ResultWriter final {
    private:
     std::vector<CoordT> results;

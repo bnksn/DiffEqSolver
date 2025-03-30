@@ -3,10 +3,10 @@
 #include <iostream>
 #include <unordered_map>
 
+#include "../concepts.hpp"
 #include "userInputs.hpp"
 
-template <typename NumT>
-    requires std::floating_point<NumT>
+template <Numeric NumT>
 class ConfigReader final {
    private:
     [[nodiscard]]

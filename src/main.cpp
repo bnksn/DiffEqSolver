@@ -10,8 +10,7 @@
 #include "solvers/solvers2D/solverHeat.hpp"
 #include "solvers/solvers2D/solverWave.hpp"
 
-template <typename NumT>
-    requires std::floating_point<NumT>
+template <Numeric NumT>
 [[nodiscard]]
 std::vector<double> getResults(const Config<NumT>& cfg) {
     switch (cfg.solver) {

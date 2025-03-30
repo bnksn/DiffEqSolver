@@ -1,16 +1,16 @@
 #pragma once
 
-#include <concepts>
 #include <string>
 #include <vector>
+
+#include "../concepts.hpp"
 
 enum class BoundaryCondition { Dirichlet, Neumann };
 enum class TrigFunc { Sine, Cosine, Tangent };
 enum class SolverChoice { Polynomial, Trig, Heat, Advection, Wave };
 enum class Dimension { Two, Three };
 
-template <typename NumT>
-    requires std::floating_point<NumT>
+template <Numeric NumT>
 struct Config {
     std::string resultPath{};
     Dimension dimension{};
