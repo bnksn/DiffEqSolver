@@ -132,7 +132,7 @@ class ConfigReader final {
         const auto yFinal = stringToNum(config.at("yFinal"));
         const auto yNumSteps = std::stoi(config.at("yNumSteps"));
         const auto waveConstant = stringToNum(config.at("waveConstant"));
-        const auto advectionConstant = std::stod(config.at("advectionConstant"));
+        const auto advectionConstant = stringToNum(config.at("advectionConstant"));
         const auto heatConstant = stringToNum(config.at("heatConstant"));
         const auto polynomialCoeffs = stringToVec(config.at("polynomialCoeffs"));
         const auto trigCoeffs = stringToVec(config.at("trigCoeffs"));
