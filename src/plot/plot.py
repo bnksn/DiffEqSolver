@@ -1,6 +1,8 @@
-import matplotlib.pyplot as plt  # type: ignore
-from matplotlib.animation import FuncAnimation  # type: ignore
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 import numpy as np
+import typing
+from mpl_toolkits.mplot3d import Axes3D # type: ignore
 
 
 def plot2d(xVals: list[float], yVals: list[float]) -> None:
@@ -23,7 +25,7 @@ def plot3d(xVals: list[float], yVals: list[float], zVals: list[float]) -> None:
         Z[i // xCount][i % xCount] = zVals[i]
 
     fig = plt.figure()
-    ax = fig.add_subplot(111, projection="3d")
+    ax  = typing.cast(Axes3D, fig.add_subplot(111, projection="3d"))
 
     ax.plot_surface(X, Y, Z, cmap="inferno")
 
